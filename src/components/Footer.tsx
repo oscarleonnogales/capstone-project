@@ -1,9 +1,7 @@
 import React from 'react';
 import './styles/Footer.scss';
 
-type Props = {};
-
-export default function Footer({}: Props) {
+const Footer: React.FunctionComponent = () => {
 	return (
 		<div className="footer">
 			<div>
@@ -28,4 +26,6 @@ export default function Footer({}: Props) {
 			</div>
 		</div>
 	);
-}
+};
+
+export default Footer;
