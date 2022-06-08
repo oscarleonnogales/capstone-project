@@ -1,3 +1,5 @@
+import { ProductData } from './ProductData';
+
 export interface Product {
 	id: string;
 	uid: string;
@@ -11,5 +13,5 @@ export interface Product {
 	linked_documents: string[];
 	lang: string;
 	alternate_languages: Object[];
-	data: Object;
+	data: ProductData;
 }

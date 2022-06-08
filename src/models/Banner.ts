@@ -1,3 +1,5 @@
+import { BannerData } from './BannerData';
+
 export interface Banner {
 	id: string;
 	uid: string;
@@ -11,5 +13,5 @@ export interface Banner {
 	linked_documents: string[];
 	lang: string;
 	alternate_languages: Object[];
-	data: Object;
+	data: BannerData;
 }

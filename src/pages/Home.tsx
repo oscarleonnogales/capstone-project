@@ -23,8 +23,8 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 	return (
 		<>
 			<Header />
-			<Slider banners={banners} />
-			<ProductsGrid products={products} />
+			<Slider banners={banners || []} />
+			<ProductsGrid products={products || []} />
 			<FeaturedProducts />
 			<Footer />
 		</>
