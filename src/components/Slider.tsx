@@ -9,6 +9,7 @@ export interface ISliderProps {
 }
 
 const Slider: React.FunctionComponent<ISliderProps> = ({ banners }) => {
+	// TODO: Remove console logs from this and ProductsGrid component
 	console.log(banners);
 	return <div className="slider">Slider placeholder</div>;
 };
