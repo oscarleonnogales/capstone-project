@@ -25,10 +25,10 @@ const Slider: React.FunctionComponent<ISliderProps> = ({ banners }) => {
 			<button className="slider-btn next-btn" onClick={nextImage}>
 				{'>'}
 			</button>
-			<div className="slider-image-container" key={banners[currentIndex].data.main_image.alt}>
+			<div className="slider-image-container" key={banners[currentIndex]?.data.main_image.alt}>
 				<img
-					src={banners[currentIndex].data.main_image.url}
-					alt={banners[currentIndex].data.main_image.alt}
+					src={banners[currentIndex]?.data.main_image.url}
+					alt={banners[currentIndex]?.data.main_image.alt}
 					className="slider-image"
 				/>
 			</div>
