@@ -1,7 +1,7 @@
 .navbar {
 	display: flex;
 	justify-content: flex-end;
-	background-color: var(--highlight-color);
+	background-color: rgb(23, 23, 23);
 }
 
 .navbar-list {
@@ -14,7 +14,7 @@
 .navbar-button {
 	font-size: 1.3rem;
 	font-weight: bold;
-	color: white;
+	color: var(--highlight-color);
 	padding: 1rem;
 	background: none;
 	border: none;
