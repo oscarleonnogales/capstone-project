@@ -10,15 +10,16 @@ const ProductsGrid: React.FunctionComponent<IProductsGridProps> = ({ products })
 	return (
 		<div className="productsGrid">
 			{products.map((product) => (
-				<div className="grid-product" key={product.data.mainimage.alt}>
+				// TODO: Make these a link that points to the product details page
+				<a className="product" href="#">
 					<img
 						src={product.data.mainimage.url}
 						alt={product.data.mainimage.alt}
-						className="grid-image"
+						className="product-image"
 					/>
 					<p className="product-name">{product.data.name}</p>
 					<p className="product-price">{`$${product.data.price}`}</p>
-				</div>
+				</a>
 			))}
 		</div>
 	);
