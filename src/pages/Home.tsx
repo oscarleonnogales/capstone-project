@@ -25,10 +25,6 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 		setCategories(ContentService.fetchCategories());
 	}, []);
 
-	useEffect(() => {
-		console.log(categories);
-	}, [categories]);
-
 	return (
 		<>
 			<Header />

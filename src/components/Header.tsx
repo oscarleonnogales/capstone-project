@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../images/convenient.png';
 import './styles/Header.scss';
 
 const Header: React.FunctionComponent = () => {
@@ -11,10 +12,13 @@ const Header: React.FunctionComponent = () => {
 
 	return (
 		<nav className="navbar">
+			<Link to="/">
+				<img src={logo} className="logo" />
+			</Link>
+			<div className="searchContainer">
+				<input className="searchInput" type="text" name="searchTerm" placeholder="Search" />
+			</div>
 			<ul className="navbar-list navbar-links-container">
-				<div className="searchContainer">
-					<input className="searchInput" type="text" name="searchTerm" placeholder="Search" />
-				</div>
 				{navItems.map((item) => (
 					<li key={item}>
 						<Link to={`/${item === 'Home' ? '' : formatString(item)}`}>
