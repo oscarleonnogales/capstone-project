@@ -10,7 +10,9 @@ const ProductListings: React.FunctionComponent<IProductListingsProps> = (props) 
 	return (
 		<>
 			<Header />
-			<div className="product-listings">hello from products</div>
+			<div className="product-listings">
+				<h1>This is the Product List Page</h1>
+			</div>
 			<Footer />
 		</>
 	);
