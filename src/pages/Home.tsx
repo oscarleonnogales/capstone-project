@@ -28,9 +28,11 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 	return (
 		<>
 			<Header />
-			<Slider banners={banners} />
-			<Categories categories={categories} />
-			<FeaturedProducts products={products} />
+			<div className="main-container">
+				<Slider banners={banners} />
+				<Categories categories={categories} />
+				<FeaturedProducts products={products} />
+			</div>
 			<Footer />
 		</>
 	);
