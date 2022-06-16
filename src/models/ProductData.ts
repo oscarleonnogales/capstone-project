@@ -1,4 +1,5 @@
 import { ImageData } from './ImageData';
+import { ProductCategory } from './ProductCategory';
 
 export interface ProductData {
 	name: string;
@@ -7,16 +8,4 @@ export interface ProductData {
 	stock: number;
 	price: number;
 	category: ProductCategory;
-}
-
-interface ProductCategory {
-	id: string;
-	type: string;
-	tags: string[];
-	slug: string;
-	lang: string;
-	first_publication_date: string;
-	last_publication_date: string;
-	link_type: string;
-	isBroken: boolean;
 }
