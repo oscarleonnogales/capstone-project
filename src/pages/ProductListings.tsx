@@ -10,15 +10,19 @@ import CategoriesFilter from '../components/CategoriesFilter';
 import ProductsGrid from '../components/ProductsGrid';
 
 const ProductListings: React.FunctionComponent = () => {
-	// FIXME: Keep as state?
 	const [allProducts, setAllProducts] = useState<Product[]>([]);
-
 	const [categories, setCategories] = useState<Category[]>([]);
 	const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
 	const [filters, setFilters] = useState<FilterHash>({});
 
 	const getFilteredProducts = (): Product[] => {
-		return allProducts.filter((product) => filters[product.data.category.id]);
+		return applyFilters()
+			? allProducts.filter((product) => filters[product.data.category.id])
+			: allProducts;
+	};
+
+	const applyFilters = (): boolean => {
+		return Object.values(filters).includes(true);
 	};
 
 	const handleFilterChange = (event: React.SyntheticEvent): void => {
@@ -40,13 +44,12 @@ const ProductListings: React.FunctionComponent = () => {
 	useEffect(() => {
 		const newFilters: FilterHash = {};
 		categories.forEach((category) => {
-			newFilters[category.id] = true;
+			newFilters[category.id] = false;
 		});
 		setFilters(newFilters);
 	}, [categories]);
 
 	useEffect(() => {
-		//FIXME: How does the callback affect this?
 		setDisplayedProducts(() => getFilteredProducts());
 	}, [filters]);
 

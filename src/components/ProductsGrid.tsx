@@ -7,6 +7,9 @@ export interface IProductsGridPageProps {
 }
 
 const ProductsGridPage: React.FunctionComponent<IProductsGridPageProps> = ({ products }) => {
+	console.log('products coming in');
+	console.log(products);
+
 	return (
 		<div className="productsGrid">
 			{products.map((product) => (
