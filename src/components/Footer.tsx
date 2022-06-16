@@ -16,6 +16,15 @@ const Footer: React.FunctionComponent = () => {
 			</div>
 			<div>
 				<a
+					className="footer-link secondary-text"
+					href="https://www.flaticon.com/free-icons/couch"
+					title="couch icons"
+				>
+					Couch icons created by Freepik - Flaticon
+				</a>
+			</div>
+			<div>
+				<a
 					href="http://oscarleon.dev"
 					target="_blank"
 					rel="noopener noreferrer"

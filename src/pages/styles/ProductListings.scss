@@ -1,0 +1,16 @@
+.product-listings-page {
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 6rem;
+}
+
+.pagination-btn-container {
+	position: absolute;
+	left: 50%;
+	bottom: 10rem;
+	transform: translateX(-50%);
+}
+
+.previous-btn {
+	margin-right: 1rem;
+}

@@ -1,0 +1,30 @@
+.categories-sidebar {
+	position: sticky;
+	top: 1rem;
+	box-shadow: var(--box-shadow);
+	border: 1px solid var(--highlight-color);
+	border-radius: 5px;
+	height: min-content;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.sidebar-title {
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+.sidebar-element {
+	display: grid;
+	grid-gap: 0.5rem;
+	grid-template-columns: min-content 1fr;
+	margin-bottom: 0.25rem;
+}
+
+.sidebar-label {
+	white-space: nowrap;
+}
+
+.sidebar-checkbox {
+	cursor: pointer;
+}

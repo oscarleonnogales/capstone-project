@@ -25,16 +25,14 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 		setCategories(ContentService.fetchCategories());
 	}, []);
 
-	useEffect(() => {
-		console.log(categories);
-	}, [categories]);
-
 	return (
 		<>
 			<Header />
-			<Slider banners={banners} />
-			<Categories categories={categories} />
-			<FeaturedProducts products={products} />
+			<div className="main-container">
+				<Slider banners={banners} />
+				<Categories categories={categories} />
+				<FeaturedProducts products={products} />
+			</div>
 			<Footer />
 		</>
 	);
