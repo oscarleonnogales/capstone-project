@@ -1,0 +1,39 @@
+.productsGrid {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.product {
+	width: 20rem;
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background: rgb(253, 253, 253);
+	color: black;
+	max-height: min-content;
+	margin: 1rem;
+	box-shadow: var(--box-shadow);
+	padding: 1rem;
+	border-radius: 1.5rem;
+	transition: var(--ease-in);
+	text-decoration: none;
+
+	&:hover {
+		cursor: pointer;
+		color: var(--highlight-color);
+		transform: scale(1.02);
+	}
+}
+
+.product-image {
+	max-width: 7rem;
+	border-radius: 0.25rem;
+	margin-bottom: 0.5rem;
+}
+
+.product-name {
+	font-weight: 600;
+}
