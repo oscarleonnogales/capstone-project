@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Banner } from '../models/Banner';
-import './styles/Slider.scss';
+import { Banner } from '../models/banners/Banner';
+import { Link } from 'react-router-dom';
+import './styles/FeaturedBanner.scss';
 
-export interface ISliderProps {
+export interface IFeaturedBannerProps {
 	banners: Banner[];
 }
 
-const Slider: React.FunctionComponent<ISliderProps> = ({ banners }) => {
+const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ banners }) => {
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
 
 	useEffect(() => {
@@ -54,13 +55,15 @@ const Slider: React.FunctionComponent<ISliderProps> = ({ banners }) => {
 					/>
 				</svg>
 			</button>
-			<img
-				className="slider-image"
-				src={banners[currentIndex]?.data.main_image.url}
-				alt={banners[currentIndex]?.data.main_image.alt}
-			/>
+			<Link to={`/products?filterBy=yxDS`}>
+				<img
+					className="slider-image"
+					src={banners[currentIndex]?.data.main_image.url}
+					alt={banners[currentIndex]?.data.main_image.alt}
+				/>
+			</Link>
 		</div>
 	);
 };
 
-export default Slider;
+export default FeaturedBanner;

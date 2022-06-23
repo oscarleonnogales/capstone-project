@@ -3,7 +3,7 @@
 	margin: 2rem auto;
 	display: flex;
 	justify-content: center;
-	max-width: min-content;
+	max-width: 100%;
 	box-shadow: var(--box-shadow);
 }
 
@@ -23,6 +23,10 @@
 	background: 0;
 	outline: none;
 	box-shadow: var(--box-shadow);
+}
+
+.slider-image {
+	max-width: 100%;
 }
 
 .next-btn {
