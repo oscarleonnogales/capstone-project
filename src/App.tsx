@@ -1,21 +1,20 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import ProductListings from './pages/ProductListings';
-import AboutUs from './pages/AboutUs';
-import OrderHistory from './pages/OrderHistory';
+import HomePage from './pages/HomePage';
+import ProductListingsPage from './pages/ProductListingsPage';
+import AboutUsPage from './pages/AboutUsPage';
+import OrderHistoryPage from './pages/OrderHistoryPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 
 function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/products" element={<ProductListings />} />
-				{/* @ts-ignore */}
+				<Route path="/" element={<HomePage />} />
+				<Route path="/products" element={<ProductListingsPage />} />
 				<Route path="/product-details" element={<ProductDetailsPage />} />
-				<Route path="/aboutus" element={<AboutUs />} />
-				<Route path="/orderhistory" element={<OrderHistory />} />
+				<Route path="/aboutus" element={<AboutUsPage />} />
+				<Route path="/orderhistory" element={<OrderHistoryPage />} />
 			</Routes>
 		</BrowserRouter>
 	);

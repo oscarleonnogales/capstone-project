@@ -3,14 +3,14 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import * as ContentService from '../services/contentService';
 import { Product } from '../models/products/Product';
-import './styles/ProductListings.scss';
 import { Category } from '../models/categories/Category';
 import { FilterHash } from '../models/shared/FilterHash';
 import CategoriesFilter from '../components/CategoriesFilter';
 import ProductsGrid from '../components/ProductsGrid';
 import { useSearchParams } from 'react-router-dom';
+import './styles/ProductListingsPage.scss';
 
-const ProductListings: React.FunctionComponent = () => {
+const ProductListingsPage: React.FunctionComponent = () => {
 	const [allProducts, setAllProducts] = useState<Product[]>([]);
 	const [categories, setCategories] = useState<Category[]>([]);
 	const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
@@ -85,4 +85,4 @@ const ProductListings: React.FunctionComponent = () => {
 	);
 };
 
-export default ProductListings;
+export default ProductListingsPage;

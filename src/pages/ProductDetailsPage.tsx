@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 import { selectSelectedProduct } from '../redux/slices/productSlice';
 import './styles/ProductDetailsPage.scss';
 
-export interface IProductDetailsPagePageProps {}
+export interface IProductDetailsPageProps {}
 
-const ProductDetailsPagePage: React.FunctionComponent<IProductDetailsPagePageProps> = () => {
+const ProductDetailsPage: React.FunctionComponent<IProductDetailsPageProps> = () => {
 	const product = useSelector(selectSelectedProduct);
 
 	return (
@@ -19,4 +19,4 @@ const ProductDetailsPagePage: React.FunctionComponent<IProductDetailsPagePagePro
 	);
 };
 
-export default ProductDetailsPagePage;
+export default ProductDetailsPage;

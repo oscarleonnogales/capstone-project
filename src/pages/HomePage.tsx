@@ -15,11 +15,11 @@ import {
 } from '../redux/slices/bannersSlice';
 import { setProducts, selectProducts } from '../redux/slices/productSlice';
 import { setCategories, selectCategories } from '../redux/slices/categoriesSlice';
-import './styles/Home.scss';
+import './styles/HomePage.scss';
 
 export interface IHomeProps {}
 
-const Home: React.FunctionComponent<IHomeProps> = (props) => {
+const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
 	const dispatch = useDispatch();
 	const products = useSelector(selectProducts);
 	const categories = useSelector(selectCategories);
@@ -58,4 +58,4 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 	);
 };
 
-export default Home;
+export default HomePage;
