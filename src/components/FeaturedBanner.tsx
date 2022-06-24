@@ -1,29 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Banner } from '../models/banners/Banner';
+import { decrementIndex, incrementIndex } from '../redux/slices/bannersSlice';
 import './styles/FeaturedBanner.scss';
 
 export interface IFeaturedBannerProps {
-	banners: Banner[];
+	featuredBanner: Banner;
 }
 
-const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ banners }) => {
-	const [currentIndex, setCurrentIndex] = useState<number>(0);
-
-	useEffect(() => {
-		const interval: NodeJS.Timer = setInterval(() => {
-			nextImage();
-		}, 3500);
-		return () => {
-			clearInterval(interval);
-		};
-	}, []);
+const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ featuredBanner }) => {
+	const dispatch = useDispatch();
 
 	const prevImage = (): void => {
-		setCurrentIndex((currentIndex) => (currentIndex === 0 ? banners.length - 1 : currentIndex - 1));
+		dispatch(decrementIndex());
 	};
 
 	const nextImage = (): void => {
-		setCurrentIndex((currentIndex) => (currentIndex > banners.length - 2 ? 0 : currentIndex + 1));
+		dispatch(incrementIndex());
 	};
 
 	return (
@@ -56,8 +49,8 @@ const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ banners
 			</button>
 			<img
 				className="slider-image"
-				src={banners[currentIndex]?.data.main_image.url}
-				alt={banners[currentIndex]?.data.main_image.alt}
+				src={featuredBanner?.data.main_image.url}
+				alt={featuredBanner?.data.main_image.alt}
 			/>
 		</div>
 	);
