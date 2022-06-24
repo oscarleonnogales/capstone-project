@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from '../models/products/Product';
+import { useDispatch } from 'react-redux';
+import { setSelectedProduct } from '../redux/slices/productSlice';
 import './styles/ProductsGrid.scss';
 
 export interface IProductsGridPageProps {
@@ -8,12 +10,21 @@ export interface IProductsGridPageProps {
 }
 
 const ProductsGridPage: React.FunctionComponent<IProductsGridPageProps> = ({ products }) => {
+	const dispatch = useDispatch();
+
+	const handleProductSelection = (product: Product): void => {
+		dispatch(setSelectedProduct(product));
+	};
+
 	return (
 		<div className="productsGrid">
 			{products.map((product) => (
-				// FIXME: How can I pass props?
-				// Don't pass props, use redux
-				<Link to="/product-details" className="product" key={product.data.sku}>
+				<Link
+					to="/product-details"
+					onClick={() => handleProductSelection(product)}
+					className="product"
+					key={product.data.sku}
+				>
 					<img
 						src={product.data.mainimage.url}
 						alt={product.data.mainimage.alt}

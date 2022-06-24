@@ -1,20 +1,19 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Product } from '../models/products/Product';
+import { useSelector } from 'react-redux';
+import { selectSelectedProduct } from '../redux/slices/productSlice';
 import './styles/ProductDetailsPage.scss';
 
-export interface IProductDetailsPagePageProps {
-	product: Product;
-}
+export interface IProductDetailsPagePageProps {}
 
-const ProductDetailsPagePage: React.FunctionComponent<IProductDetailsPagePageProps> = ({
-	product,
-}) => {
+const ProductDetailsPagePage: React.FunctionComponent<IProductDetailsPagePageProps> = () => {
+	const product = useSelector(selectSelectedProduct);
+
 	return (
 		<>
 			<Header />
-			<div className="main-container">{product.data.name}</div>
+			{product && <div className="main-container">{product.data.name}</div>}
 			<Footer />
 		</>
 	);
