@@ -27,7 +27,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 			// TODO: Change when fetching from an API
 			setCategories(ContentService.fetchCategories());
 		}
-	}, [isLoading]);
+	}, [data.results, isLoading]);
 
 	return (
 		<>

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ProductListings from './pages/ProductListings';
 import AboutUs from './pages/AboutUs';
 import OrderHistory from './pages/OrderHistory';
+import ProductDetailsPage from './pages/ProductDetailsPage';
 
 function App() {
 	return (
@@ -11,6 +12,8 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/products" element={<ProductListings />} />
+				{/* @ts-ignore */}
+				<Route path="/product-details" element={<ProductDetailsPage />} />
 				<Route path="/aboutus" element={<AboutUs />} />
 				<Route path="/orderhistory" element={<OrderHistory />} />
 			</Routes>
