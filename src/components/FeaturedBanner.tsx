@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Banner } from '../models/banners/Banner';
-import { Link } from 'react-router-dom';
 import './styles/FeaturedBanner.scss';
 
 export interface IFeaturedBannerProps {
@@ -32,7 +31,7 @@ const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ banners
 			<button className="slider-btn previous-btn" onClick={prevImage}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					fill="white"
+					fill="#27c5ec"
 					className="bi bi-arrow-left-circle"
 					viewBox="0 0 16 16"
 				>
@@ -46,7 +45,7 @@ const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ banners
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					className="bi bi-arrow-right-circle"
-					fill="white"
+					fill="#27c5ec"
 					viewBox="0 0 16 16"
 				>
 					<path
@@ -55,13 +54,11 @@ const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ banners
 					/>
 				</svg>
 			</button>
-			<Link to={`/products?filterBy=yxDS`}>
-				<img
-					className="slider-image"
-					src={banners[currentIndex]?.data.main_image.url}
-					alt={banners[currentIndex]?.data.main_image.alt}
-				/>
-			</Link>
+			<img
+				className="slider-image"
+				src={banners[currentIndex]?.data.main_image.url}
+				alt={banners[currentIndex]?.data.main_image.alt}
+			/>
 		</div>
 	);
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product } from '../models/Product';
+import { Product } from '../models/products/Product';
 import './styles/ProductsGrid.scss';
 
 export interface IProductsGridPageProps {

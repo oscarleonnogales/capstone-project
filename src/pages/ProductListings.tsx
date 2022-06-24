@@ -2,18 +2,21 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import * as ContentService from '../services/contentService';
-import { Product } from '../models/Product';
+import { Product } from '../models/products/Product';
 import './styles/ProductListings.scss';
-import { Category } from '../models/Category';
-import { FilterHash } from '../models/FilterHash';
+import { Category } from '../models/categories/Category';
+import { FilterHash } from '../models/shared/FilterHash';
 import CategoriesFilter from '../components/CategoriesFilter';
 import ProductsGrid from '../components/ProductsGrid';
+import { useSearchParams } from 'react-router-dom';
 
 const ProductListings: React.FunctionComponent = () => {
 	const [allProducts, setAllProducts] = useState<Product[]>([]);
 	const [categories, setCategories] = useState<Category[]>([]);
 	const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
 	const [filters, setFilters] = useState<FilterHash>({});
+	const [searchParams] = useSearchParams();
+	const urlCategoryId = searchParams.get('filterBy');
 
 	const getFilteredProducts = (): Product[] => {
 		return applyFilters()
@@ -31,23 +34,32 @@ const ProductListings: React.FunctionComponent = () => {
 		setFilters((filters) => ({ ...filters, [target.name]: target.checked }));
 	};
 
-	useEffect(() => {
-		ContentService.fetchProducts().then((res) => {
-			setAllProducts(res);
-			setDisplayedProducts(res);
-		});
-
-		// TODO: Change when fetching from an API
-		setCategories(ContentService.fetchCategories());
-	}, []);
-
-	useEffect(() => {
+	const getOriginalFilters = (categoryIds: string[], urlCategoryId: string | null): FilterHash => {
 		const newFilters: FilterHash = {};
-		categories.forEach((category) => {
-			newFilters[category.id] = false;
+		categoryIds.forEach((catId) => {
+			if (catId === urlCategoryId) {
+				newFilters[catId] = true;
+			} else {
+				newFilters[catId] = false;
+			}
 		});
-		setFilters(newFilters);
-	}, [categories]);
+		return newFilters;
+	};
+
+	useEffect(() => {
+		const setOriginalState = async () => {
+			// FIXME: Is there a better way to do this?
+			const productResponse = await ContentService.fetchProducts();
+			setAllProducts(productResponse);
+
+			const responseCategories = await ContentService.fetchCategories();
+			const categoryIds = responseCategories.map((category) => category.id);
+
+			setCategories(responseCategories);
+			setFilters(getOriginalFilters(categoryIds, urlCategoryId));
+		};
+		setOriginalState();
+	}, []);
 
 	useEffect(() => {
 		setDisplayedProducts(() => getFilteredProducts());

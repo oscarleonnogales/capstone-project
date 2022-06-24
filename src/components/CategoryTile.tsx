@@ -1,5 +1,6 @@
 import React from 'react';
-import { Category } from '../models/Category';
+import { Link } from 'react-router-dom';
+import { Category } from '../models/categories/Category';
 
 export interface ICategoryTileProps {
 	category: Category;
@@ -8,18 +9,16 @@ export interface ICategoryTileProps {
 
 const CategoryTile: React.FunctionComponent<ICategoryTileProps> = ({ category, index }) => {
 	return category ? (
-		<div
+		<Link
+			to={`/products?filterBy=${category.id}`}
 			className={`category cat-${index}`}
 			style={{
 				backgroundImage: `url(${category.data.main_image.url})`,
 			}}
 		>
-			{/* TODO: Change to product listings page with filter */}
-			<a href="/" className="category-link">
-				{category.data.name}
-			</a>
+			<div className="category-name">{category.data.name}</div>
 			<div className="category-overlay" />
-		</div>
+		</Link>
 	) : null;
 };
 

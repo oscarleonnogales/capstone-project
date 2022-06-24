@@ -1,10 +1,9 @@
-import { Banner } from '../models/Banner';
-import { Product } from '../models/Product';
-import { Category } from '../models/Category';
+import { Banner } from '../models/banners/Banner';
+import { Product } from '../models/products/Product';
+import { Category } from '../models/categories/Category';
 import * as data from '../mocks/en-us/product-categories.json';
 import axios from 'axios';
 
-// FIXME: Best way to do this?
 // TODO: Remove hardcoded URLs and place in .env file, HANDLE errors
 
 export const fetchBanners = async (): Promise<Banner[]> => {

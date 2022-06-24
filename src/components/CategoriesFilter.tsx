@@ -1,6 +1,6 @@
 import React from 'react';
-import { Category } from '../models/Category';
-import { FilterHash } from '../models/FilterHash';
+import { Category } from '../models/categories/Category';
+import { FilterHash } from '../models/shared/FilterHash';
 import './styles/CategoriesFilter.scss';
 
 export interface ICategoriesFilterPageProps {
