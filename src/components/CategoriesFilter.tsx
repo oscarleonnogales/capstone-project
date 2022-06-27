@@ -1,19 +1,27 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Category } from '../models/categories/Category';
 import { FilterHash } from '../models/shared/FilterHash';
+import { changeFilters } from '../redux/slices/filtersSlice';
 import './styles/CategoriesFilter.scss';
 
 export interface ICategoriesFilterPageProps {
 	categories: Category[];
 	filters: FilterHash;
-	handleFilterChange: (event: React.SyntheticEvent) => void;
 }
 
 const CategoriesFilterPage: React.FunctionComponent<ICategoriesFilterPageProps> = ({
 	categories,
 	filters,
-	handleFilterChange,
 }) => {
+	const dispatch = useDispatch();
+
+	const handleFilterChange = (event: React.SyntheticEvent): void => {
+		event.preventDefault();
+		const target = event.target as HTMLInputElement;
+		dispatch(changeFilters({ [target.name]: target.checked }));
+	};
+
 	return (
 		<div className="categories-sidebar">
 			<p className="sidebar-title">Filter by Category</p>
@@ -23,7 +31,7 @@ const CategoriesFilterPage: React.FunctionComponent<ICategoriesFilterPageProps> 
 						className="sidebar-checkbox"
 						name={category.id}
 						type="checkbox"
-						onChange={handleFilterChange}
+						onChange={(event) => handleFilterChange(event)}
 						checked={filters[category.id] || false}
 					/>
 					<label className="sidebar-label" htmlFor={category.data.name}>

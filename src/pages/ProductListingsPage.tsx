@@ -9,14 +9,20 @@ import CategoriesFilter from '../components/CategoriesFilter';
 import ProductsGrid from '../components/ProductsGrid';
 import { useSearchParams } from 'react-router-dom';
 import './styles/ProductListingsPage.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFilters, setFilters } from '../redux/slices/filtersSlice';
 
 const ProductListingsPage: React.FunctionComponent = () => {
-	const [allProducts, setAllProducts] = useState<Product[]>([]);
-	const [categories, setCategories] = useState<Category[]>([]);
-	const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
-	const [filters, setFilters] = useState<FilterHash>({});
+	const dispatch = useDispatch();
+	const filters = useSelector(selectFilters);
+
 	const [searchParams] = useSearchParams();
 	const urlCategoryId = searchParams.get('filterBy');
+
+	// TODO: Add to redux
+	const [allProducts, setAllProducts] = useState<Product[]>([]);
+	const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
+	const [categories, setCategories] = useState<Category[]>([]);
 
 	const getFilteredProducts = (): Product[] => {
 		return applyFilters()
@@ -26,12 +32,6 @@ const ProductListingsPage: React.FunctionComponent = () => {
 
 	const applyFilters = (): boolean => {
 		return Object.values(filters).includes(true);
-	};
-
-	const handleFilterChange = (event: React.SyntheticEvent): void => {
-		event.preventDefault();
-		const target = event.target as HTMLInputElement;
-		setFilters((filters) => ({ ...filters, [target.name]: target.checked }));
 	};
 
 	const getOriginalFilters = (categoryIds: string[], urlCategoryId: string | null): FilterHash => {
@@ -56,10 +56,10 @@ const ProductListingsPage: React.FunctionComponent = () => {
 			const categoryIds = responseCategories.map((category) => category.id);
 
 			setCategories(responseCategories);
-			setFilters(getOriginalFilters(categoryIds, urlCategoryId));
+			dispatch(setFilters(getOriginalFilters(categoryIds, urlCategoryId)));
 		};
 		setOriginalState();
-	}, []);
+	}, [dispatch, urlCategoryId]);
 
 	useEffect(() => {
 		setDisplayedProducts(() => getFilteredProducts());
@@ -69,11 +69,7 @@ const ProductListingsPage: React.FunctionComponent = () => {
 		<>
 			<Header />
 			<div className="product-listings-page main-container">
-				<CategoriesFilter
-					categories={categories}
-					handleFilterChange={handleFilterChange}
-					filters={filters}
-				/>
+				<CategoriesFilter categories={categories} filters={filters} />
 				<ProductsGrid products={displayedProducts} />
 			</div>
 			<div className="pagination-btn-container">
