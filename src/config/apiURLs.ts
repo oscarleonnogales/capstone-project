@@ -1,0 +1,9 @@
+export const featuredBannersURL = `&q=${encodeURIComponent(
+	'[[at(document.type, "banner")]]'
+)}&lang=en-us&pageSize=5`;
+
+export const productsURL =
+	'&q=%5B%5Bat(document.type%2C%20%22product%22)%5D%5D&q=%5B%5Bat(document.tags%2C%20%5B%22Featured%22%5D)%5D%5D&lang=en-us&pageSize=16';
+
+export const categoriesURL =
+	'&q=%5B%5Bat(document.type%2C%20%22category%22)%5D%5D&lang=en-us&pageSize=30';
