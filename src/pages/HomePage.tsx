@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 import FeaturedBanner from '../components/FeaturedBanner';
 import FeaturedProducts from '../components/FeaturedProducts';
 import Categories from '../components/CategoriesGrid';
-import * as ContentService from '../services/contentService';
 import { useFeaturedBanners } from '../utils/hooks/useFeaturedBanners';
 import { useDispatch, useSelector } from 'react-redux';
 import {

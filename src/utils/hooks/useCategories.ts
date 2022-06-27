@@ -32,8 +32,6 @@ export function useCategories() {
 					}
 				);
 				const categoriesData: CategoriesApiResponse = await response.json();
-				console.log('categories data is');
-				console.log(categoriesData);
 
 				setCategories({ categoriesData, areCategoriesLoading: false });
 			} catch (err) {
