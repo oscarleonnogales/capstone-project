@@ -27,6 +27,7 @@ const ProductListingsPage: React.FunctionComponent = () => {
 	const { productsData, areProductsLoading } = useProducts();
 	const { categoriesData, areCategoriesLoading } = useCategories();
 
+	// FIXME: Storing derived state?
 	const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
 
 	useEffect(() => {
