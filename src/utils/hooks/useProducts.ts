@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../constants';
+import { API_BASE_URL, PRODUCTS_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 import { ProductsApiResponse } from '../../models/products/ProductsApiResponse';
 import { ProductsResponse } from '../../models/products/ProductsResponse';
-import { productsURL } from '../../config/apiURLs';
 
 export function useProducts() {
 	const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
@@ -26,7 +25,7 @@ export function useProducts() {
 				setProducts({ productsData: { results: [] }, areProductsLoading: true });
 
 				const response = await fetch(
-					`${API_BASE_URL}/documents/search?ref=${apiRef}${productsURL}`,
+					`${API_BASE_URL}/documents/search?ref=${apiRef}${PRODUCTS_URL}`,
 					{
 						signal: controller.signal,
 					}

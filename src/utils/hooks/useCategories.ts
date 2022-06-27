@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../constants';
+import { API_BASE_URL, CATEGORIES_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 import { CategoriesApiResponse } from '../../models/categories/CategoriesApiResponse';
 import { CategoriesResponse } from '../../models/categories/CategoriesResponse';
-import { categoriesURL } from '../../config/apiURLs';
 
 export function useCategories() {
 	const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
@@ -26,7 +25,7 @@ export function useCategories() {
 				setCategories({ categoriesData: { results: [] }, areCategoriesLoading: true });
 
 				const response = await fetch(
-					`${API_BASE_URL}/documents/search?ref=${apiRef}${categoriesURL}`,
+					`${API_BASE_URL}/documents/search?ref=${apiRef}${CATEGORIES_URL}`,
 					{
 						signal: controller.signal,
 					}

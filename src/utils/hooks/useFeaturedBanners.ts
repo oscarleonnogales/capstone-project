@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../constants';
+import { API_BASE_URL, FEATURED_BANNERS_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 import { BannerApiResponse } from '../../models/banners/BannerApiResponse';
 import { FeaturedBannersResponse } from '../../models/banners/FeaturedBannersResponse';
-import { featuredBannersURL } from '../../config/apiURLs';
 
 export function useFeaturedBanners() {
 	const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
@@ -26,7 +25,7 @@ export function useFeaturedBanners() {
 				setFeaturedBanners({ data: { results: [] }, isLoading: true });
 
 				const response = await fetch(
-					`${API_BASE_URL}/documents/search?ref=${apiRef}${featuredBannersURL}`,
+					`${API_BASE_URL}/documents/search?ref=${apiRef}${FEATURED_BANNERS_URL}`,
 					{
 						signal: controller.signal,
 					}

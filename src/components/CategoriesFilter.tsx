@@ -29,10 +29,10 @@ const CategoriesFilterPage: React.FunctionComponent<ICategoriesFilterPageProps> 
 				<div className="sidebar-element" key={category.data.name}>
 					<input
 						className="sidebar-checkbox"
-						name={category.id}
+						name={category.slugs[0]}
 						type="checkbox"
 						onChange={(event) => handleFilterChange(event)}
-						checked={filters[category.id] || false}
+						checked={filters[category.slugs[0]] || false}
 					/>
 					<label className="sidebar-label" htmlFor={category.data.name}>
 						{category.data.name}

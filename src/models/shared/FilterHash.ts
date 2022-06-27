@@ -1,1 +1,1 @@
-export type FilterHash = { [categoryId: string]: boolean };
+export type FilterHash = { [categorySlug: string]: boolean };
