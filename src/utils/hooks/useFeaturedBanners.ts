@@ -3,6 +3,7 @@ import { API_BASE_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 import { BannerApiResponse } from '../../models/banners/BannerApiResponse';
 import { FeaturedBannersResponse } from '../../models/banners/FeaturedBannersResponse';
+import { featuredBannersURL } from '../../config/apiURLs';
 
 export function useFeaturedBanners() {
 	const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
@@ -25,9 +26,7 @@ export function useFeaturedBanners() {
 				setFeaturedBanners({ data: { results: [] }, isLoading: true });
 
 				const response = await fetch(
-					`${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
-						'[[at(document.type, "banner")]]'
-					)}&lang=en-us&pageSize=5`,
+					`${API_BASE_URL}/documents/search?ref=${apiRef}${featuredBannersURL}`,
 					{
 						signal: controller.signal,
 					}

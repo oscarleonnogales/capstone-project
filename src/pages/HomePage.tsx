@@ -17,6 +17,7 @@ import { setProducts, selectProducts } from '../redux/slices/productSlice';
 import { setCategories, selectCategories } from '../redux/slices/categoriesSlice';
 import './styles/HomePage.scss';
 import { useProducts } from '../utils/hooks/useProducts';
+import { useCategories } from '../utils/hooks/useCategories';
 
 export interface IHomeProps {}
 
@@ -29,6 +30,7 @@ const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
 
 	const { data, isLoading } = useFeaturedBanners();
 	const { productsData, areProductsLoading } = useProducts();
+	const { categoriesData, areCategoriesLoading } = useCategories();
 
 	useEffect(() => {
 		const interval: NodeJS.Timer = setInterval(() => {
@@ -42,7 +44,6 @@ const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
 	useEffect(() => {
 		if (!isLoading) {
 			dispatch(setBanners(data.results));
-			dispatch(setCategories(ContentService.fetchCategories()));
 		}
 	}, [data.results, dispatch, isLoading]);
 
@@ -51,6 +52,12 @@ const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
 			dispatch(setProducts(productsData.results));
 		}
 	}, [areProductsLoading, dispatch, productsData.results]);
+
+	useEffect(() => {
+		if (!areCategoriesLoading) {
+			dispatch(setCategories(categoriesData.results));
+		}
+	}, [areCategoriesLoading, dispatch, categoriesData.results]);
 
 	return (
 		<>

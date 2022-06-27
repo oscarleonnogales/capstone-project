@@ -32,8 +32,6 @@ export function useProducts() {
 					}
 				);
 				const productsData: ProductsApiResponse = await response.json();
-				console.log('products data is');
-				console.log(productsData);
 
 				setProducts({ productsData, areProductsLoading: false });
 			} catch (err) {
