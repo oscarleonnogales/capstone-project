@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Product } from '../models/products/Product';
-import { setSelectedProduct } from '../redux/slices/productSlice';
+import { setSelectedProductId } from '../redux/slices/productSlice';
 import CartButtons from './CartButtons';
 
 export interface IProductElementProps {
@@ -13,7 +13,7 @@ const ProductElement: React.FunctionComponent<IProductElementProps> = ({ product
 	const dispatch = useDispatch();
 
 	const handleProductSelection = (product: Product): void => {
-		dispatch(setSelectedProduct(product));
+		dispatch(setSelectedProductId(product.id));
 	};
 
 	const formatCategory = (word: string): string => {

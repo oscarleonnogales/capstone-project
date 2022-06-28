@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useSelector } from 'react-redux';
-import { selectSelectedProduct } from '../redux/slices/productSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectSelectedProductId } from '../redux/slices/productSlice';
+import { useProductDetails } from '../utils/hooks/useProductDetails';
+import { Product } from '../models/products/Product';
 import './styles/ProductDetailsPage.scss';
 
-export interface IProductDetailsPageProps {}
+const ProductDetailsPage: React.FunctionComponent = () => {
+	const dispatch = useDispatch();
+	const selectedProductId = useSelector(selectSelectedProductId);
+	const { productDetailsData, areProductDetailsLoading } = useProductDetails(selectedProductId);
 
-const ProductDetailsPage: React.FunctionComponent<IProductDetailsPageProps> = () => {
-	const product = useSelector(selectSelectedProduct);
+	const [product, setProduct] = useState<Product>();
+
+	useEffect(() => {
+		if (!areProductDetailsLoading) {
+			setProduct(productDetailsData.results[0]);
+		}
+	}, [areProductDetailsLoading, productDetailsData.results]);
 
 	return (
 		<>
