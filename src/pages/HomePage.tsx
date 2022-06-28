@@ -17,6 +17,7 @@ import { setCategories, selectCategories } from '../redux/slices/categoriesSlice
 import './styles/HomePage.scss';
 import { useProducts } from '../utils/hooks/useProducts';
 import { useCategories } from '../utils/hooks/useCategories';
+import LoadingAnimation from '../components/LoadingAnimation';
 
 export interface IHomeProps {}
 
@@ -57,6 +58,10 @@ const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
 			dispatch(setCategories(categoriesData.results));
 		}
 	}, [areCategoriesLoading, dispatch, categoriesData.results]);
+
+	if (isLoading || areProductsLoading || areCategoriesLoading) {
+		return <LoadingAnimation />;
+	}
 
 	return (
 		<>

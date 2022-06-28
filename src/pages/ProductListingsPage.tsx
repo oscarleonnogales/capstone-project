@@ -14,6 +14,7 @@ import { useCategories } from '../utils/hooks/useCategories';
 import { selectProducts, setProducts } from '../redux/slices/productSlice';
 import { selectCategories, setCategories } from '../redux/slices/categoriesSlice';
 import { CATEGORIES } from '../utils/constants';
+import LoadingAnimation from '../components/LoadingAnimation';
 
 const ProductListingsPage: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
@@ -76,6 +77,10 @@ const ProductListingsPage: React.FunctionComponent = () => {
 		});
 		return newFilters;
 	};
+
+	if (areProductsLoading || areCategoriesLoading) {
+		return <LoadingAnimation />;
+	}
 
 	return (
 		<>

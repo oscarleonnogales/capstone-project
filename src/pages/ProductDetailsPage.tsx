@@ -6,6 +6,7 @@ import { selectSelectedProductId } from '../redux/slices/productSlice';
 import { useProductDetails } from '../utils/hooks/useProductDetails';
 import { Product } from '../models/products/Product';
 import './styles/ProductDetailsPage.scss';
+import LoadingAnimation from '../components/LoadingAnimation';
 
 const ProductDetailsPage: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
@@ -19,6 +20,10 @@ const ProductDetailsPage: React.FunctionComponent = () => {
 			setProduct(productDetailsData.results[0]);
 		}
 	}, [areProductDetailsLoading, productDetailsData.results]);
+
+	if (areProductDetailsLoading) {
+		return <LoadingAnimation />;
+	}
 
 	return (
 		<>
