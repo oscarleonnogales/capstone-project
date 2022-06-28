@@ -6,6 +6,7 @@ import AboutUsPage from './pages/AboutUsPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import CheckoutPage from './pages/CheckoutPage';
 import CartPage from './pages/CartPage';
+import SearchPage from './pages/SearchPage';
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/product-details" element={<ProductDetailsPage />} />
 				<Route path="/aboutus" element={<AboutUsPage />} />
 				<Route path="/cart" element={<CartPage />} />
+				<Route path="/search" element={<SearchPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
