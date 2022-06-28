@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Category } from '../models/categories/Category';
 import { FilterHash } from '../models/shared/FilterHash';
-import { changeFilters } from '../redux/slices/filtersSlice';
+import { changeFilters, setFilters } from '../redux/slices/filtersSlice';
 import './styles/CategoriesFilter.scss';
 
 export interface ICategoriesFilterPageProps {
@@ -22,6 +22,14 @@ const CategoriesFilterPage: React.FunctionComponent<ICategoriesFilterPageProps> 
 		dispatch(changeFilters({ [target.name]: target.checked }));
 	};
 
+	const clearFilters = (): void => {
+		const initialState: FilterHash = {};
+		Object.keys(filters).forEach((filterSlug) => {
+			initialState[filterSlug] = false;
+		});
+		dispatch(setFilters(initialState));
+	};
+
 	return (
 		<div className="categories-sidebar">
 			<p className="sidebar-title">Filter by Category</p>
@@ -39,6 +47,9 @@ const CategoriesFilterPage: React.FunctionComponent<ICategoriesFilterPageProps> 
 					</label>
 				</div>
 			))}
+			<button className="btn reset-filters-btn" onClick={clearFilters}>
+				Clear Filters
+			</button>
 		</div>
 	);
 };
