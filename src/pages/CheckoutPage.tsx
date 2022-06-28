@@ -9,6 +9,7 @@ import {
 	removeEntirelyFromCart,
 	resetCart,
 } from '../redux/slices/cartSlice';
+import './styles/CheckoutPage.scss';
 
 export interface ICheckoutPageProps {}
 
