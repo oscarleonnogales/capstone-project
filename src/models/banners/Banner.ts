@@ -9,7 +9,7 @@ export interface Banner {
 	tags: string[];
 	first_publication_date: string;
 	last_publication_date: string;
-	slugs: Object[];
+	slugs: string[];
 	linked_documents: string[];
 	lang: string;
 	alternate_languages: Object[];

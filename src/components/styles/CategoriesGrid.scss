@@ -18,7 +18,7 @@
 		transform: scale(1.05);
 		cursor: pointer;
 
-		.category-link {
+		.category-name {
 			opacity: 100%;
 		}
 
@@ -28,7 +28,7 @@
 	}
 }
 
-.category-link {
+.category-name {
 	opacity: 0;
 	font-size: 3rem;
 	text-decoration: none;
@@ -54,7 +54,7 @@
 }
 
 @media (max-width: 688px) {
-	.category-link {
+	.category-name {
 		font-size: 1.75rem;
 	}
 

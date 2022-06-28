@@ -5,26 +5,37 @@
 	margin: 0 auto;
 }
 
-.product {
-	width: 20rem;
-	position: relative;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
+.product-link {
+	text-decoration: none;
+
+	transition: var(--ease-in);
+
 	background: rgb(253, 253, 253);
 	color: black;
-	max-height: min-content;
-	margin: 1rem;
-	box-shadow: var(--box-shadow);
 	padding: 1rem;
-	border-radius: 1.5rem;
-	transition: var(--ease-in);
-	text-decoration: none;
 
 	&:hover {
 		cursor: pointer;
 		color: var(--highlight-color);
+	}
+}
+
+.product {
+	width: 20rem;
+	margin: 1rem;
+	position: relative;
+	display: flex;
+	align-items: center;
+	transition: var(--ease-in);
+	box-shadow: var(--box-shadow);
+	max-height: min-content;
+	flex-direction: column;
+	border-radius: 1.5rem;
+
+	&:hover {
+		color: var(--highlight-color);
 		transform: scale(1.02);
+		border: 1px solid var(--highlight-color);
 	}
 }
 

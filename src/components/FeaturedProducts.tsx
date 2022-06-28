@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Product } from '../models/Product';
+import { Product } from '../models/products/Product';
 import ProductsGrid from './ProductsGrid';
 
 export interface IFeaturedProductsProps {

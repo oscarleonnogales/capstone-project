@@ -1,4 +1,4 @@
-import { ImageData } from './ImageData';
+import { ImageData } from '../shared/ImageData';
 
 export interface CategoryData {
 	name: string;

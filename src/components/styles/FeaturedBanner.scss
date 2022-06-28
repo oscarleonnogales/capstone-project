@@ -3,7 +3,7 @@
 	margin: 2rem auto;
 	display: flex;
 	justify-content: center;
-	max-width: min-content;
+	max-width: 100%;
 	box-shadow: var(--box-shadow);
 }
 
@@ -13,7 +13,6 @@
 	transform: translateY(-50%);
 	cursor: pointer;
 	font-size: 2rem;
-	color: white;
 	opacity: 0.7;
 	border: none;
 	height: 3rem;
@@ -23,6 +22,10 @@
 	background: 0;
 	outline: none;
 	box-shadow: var(--box-shadow);
+}
+
+.slider-image {
+	max-width: 100%;
 }
 
 .next-btn {

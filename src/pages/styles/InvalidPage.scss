@@ -1,0 +1,21 @@
+.invalid-page {
+	display: flex;
+	flex-direction: column;
+	margin: 2rem auto;
+	align-items: center;
+}
+
+.invalid-page-title {
+	font-size: 7rem;
+	color: black;
+}
+
+.invalid-page-main-paragraph {
+	color: black;
+	font-size: 3rem;
+	margin-bottom: 2rem;
+}
+
+.return-home-btn {
+	text-decoration: none;
+}

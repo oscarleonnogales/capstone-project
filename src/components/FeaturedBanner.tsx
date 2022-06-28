@@ -1,29 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Banner } from '../models/Banner';
-import './styles/Slider.scss';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Banner } from '../models/banners/Banner';
+import { decrementIndex, incrementIndex } from '../redux/slices/bannersSlice';
+import './styles/FeaturedBanner.scss';
 
-export interface ISliderProps {
-	banners: Banner[];
+export interface IFeaturedBannerProps {
+	featuredBanner: Banner;
 }
 
-const Slider: React.FunctionComponent<ISliderProps> = ({ banners }) => {
-	const [currentIndex, setCurrentIndex] = useState<number>(0);
-
-	useEffect(() => {
-		const interval: NodeJS.Timer = setInterval(() => {
-			nextImage();
-		}, 3500);
-		return () => {
-			clearInterval(interval);
-		};
-	}, []);
+const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ featuredBanner }) => {
+	const dispatch = useDispatch();
 
 	const prevImage = (): void => {
-		setCurrentIndex((currentIndex) => (currentIndex === 0 ? banners.length - 1 : currentIndex - 1));
+		dispatch(decrementIndex());
 	};
 
 	const nextImage = (): void => {
-		setCurrentIndex((currentIndex) => (currentIndex > banners.length - 2 ? 0 : currentIndex + 1));
+		dispatch(incrementIndex());
 	};
 
 	return (
@@ -31,7 +24,7 @@ const Slider: React.FunctionComponent<ISliderProps> = ({ banners }) => {
 			<button className="slider-btn previous-btn" onClick={prevImage}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					fill="white"
+					fill="#27c5ec"
 					className="bi bi-arrow-left-circle"
 					viewBox="0 0 16 16"
 				>
@@ -45,7 +38,7 @@ const Slider: React.FunctionComponent<ISliderProps> = ({ banners }) => {
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					className="bi bi-arrow-right-circle"
-					fill="white"
+					fill="#27c5ec"
 					viewBox="0 0 16 16"
 				>
 					<path
@@ -56,11 +49,11 @@ const Slider: React.FunctionComponent<ISliderProps> = ({ banners }) => {
 			</button>
 			<img
 				className="slider-image"
-				src={banners[currentIndex]?.data.main_image.url}
-				alt={banners[currentIndex]?.data.main_image.alt}
+				src={featuredBanner?.data.main_image.url}
+				alt={featuredBanner?.data.main_image.alt}
 			/>
 		</div>
 	);
 };
 
-export default Slider;
+export default FeaturedBanner;
