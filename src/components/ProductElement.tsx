@@ -24,7 +24,7 @@ const ProductElement: React.FunctionComponent<IProductElementProps> = ({ product
 		<div className="product" key={product.data.sku}>
 			<Link
 				className="product-link"
-				to="/product-details"
+				to={`/product/${product.id}`}
 				onClick={() => handleProductSelection(product)}
 			>
 				<img

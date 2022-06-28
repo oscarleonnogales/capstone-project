@@ -4,7 +4,7 @@ import logo from '../images/convenient.png';
 import './styles/Header.scss';
 
 const Header: React.FunctionComponent = () => {
-	const navItems: string[] = ['Home', 'About Us', 'Products', 'Checkout'];
+	const navItems: string[] = ['Home', 'Products', 'Cart', 'Checkout'];
 
 	const formatString = (str: string): string => {
 		return str.split(' ').join('').toLowerCase();
