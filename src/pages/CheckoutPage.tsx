@@ -7,7 +7,6 @@ import './styles/CheckoutPage.scss';
 import { CheckoutFormValues } from '../models/shared/CheckoutFormValues';
 import CheckoutForm from '../components/CheckoutForm';
 import { Link } from 'react-router-dom';
-import { CartItem } from '../models/cart/CartItem';
 import OrderSummaryTable from '../components/OrderSummaryTable';
 
 export interface ICheckoutPageProps {}
