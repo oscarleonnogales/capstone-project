@@ -4,7 +4,6 @@ import { useLatestAPI } from './useLatestAPI';
 import { ProductsApiResponse } from '../../models/products/ProductsApiResponse';
 import { ProductDetailsResponse } from '../../models/products/ProductDetailsResponse';
 
-// FIXME: Better way to make props?
 export function useProductDetails(productId: string | null) {
 	const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
 	const [productDetails, setProductDetails] = useState<ProductDetailsResponse>({

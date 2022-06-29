@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import CategoriesFilter from '../components/CategoriesFilter';
+import LoadingAnimation from '../components/LoadingAnimation';
+import ProductsGrid from '../components/ProductsGrid';
 import { Product } from '../models/products/Product';
 import { FilterHash } from '../models/shared/FilterHash';
-import CategoriesFilter from '../components/CategoriesFilter';
-import ProductsGrid from '../components/ProductsGrid';
 import { useSearchParams } from 'react-router-dom';
-import './styles/ProductListingsPage.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilters, setFilters } from '../redux/slices/filtersSlice';
 import { useProducts } from '../utils/hooks/useProducts';
@@ -14,7 +14,7 @@ import { useCategories } from '../utils/hooks/useCategories';
 import { selectProducts, setProducts } from '../redux/slices/productSlice';
 import { selectCategories, setCategories } from '../redux/slices/categoriesSlice';
 import { CATEGORIES } from '../utils/constants';
-import LoadingAnimation from '../components/LoadingAnimation';
+import './styles/ProductListingsPage.scss';
 
 const ProductListingsPage: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
@@ -28,7 +28,6 @@ const ProductListingsPage: React.FunctionComponent = () => {
 	const { productsData, areProductsLoading } = useProducts();
 	const { categoriesData, areCategoriesLoading } = useCategories();
 
-	// FIXME: Storing derived state?
 	const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
 
 	useEffect(() => {
@@ -49,19 +48,14 @@ const ProductListingsPage: React.FunctionComponent = () => {
 	}, [categories, dispatch, urlCategorySlug]);
 
 	useEffect(() => {
-		// FIXME: Put function in the dependency array?
-		setDisplayedProducts(() => getFilteredProducts());
+		const applyFilters = (): boolean => {
+			return Object.values(filters).includes(true);
+		};
+
+		setDisplayedProducts(() =>
+			applyFilters() ? products.filter((product) => filters[product.data.category.slug]) : products
+		);
 	}, [filters, products]);
-
-	const applyFilters = (): boolean => {
-		return Object.values(filters).includes(true);
-	};
-
-	const getFilteredProducts = (): Product[] => {
-		return applyFilters()
-			? products.filter((product) => filters[product.data.category.slug])
-			: products;
-	};
 
 	const getOriginalFilters = (
 		categorySlugs: string[],
