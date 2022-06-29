@@ -1,0 +1,38 @@
+.modal {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.35);
+}
+
+.modal-title {
+	color: black;
+	margin-bottom: 2rem;
+	font-size: 3rem;
+}
+
+.modal-content {
+	background: white;
+	padding: 2rem;
+	box-shadow: var(--box-shadow);
+	width: min-content;
+	white-space: nowrap;
+	margin: auto;
+	margin-top: 15rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.btn-return-home {
+	text-decoration: none;
+}
+
+.no-items-message {
+	font-size: 1.25rem;
+	text-align: center;
+	margin: auto;
+}
