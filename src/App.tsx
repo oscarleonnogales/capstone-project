@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import HomePage from './pages/HomePage';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 import ProductListingsPage from './pages/ProductListingsPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
-import CheckoutPage from './pages/CheckoutPage';
-import CartPage from './pages/CartPage';
 import SearchPage from './pages/SearchPage';
 import InvalidPage from './pages/InvalidPage';
 
