@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CATEGORIES } from '../utils/constants';
+
 import { Category } from '../models/categories/Category';
+
+import { CATEGORIES } from '../utils/constants';
 
 export interface ICategoryTileProps {
 	category: Category;

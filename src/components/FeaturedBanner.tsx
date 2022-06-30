@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+
 import { Banner } from '../models/banners/Banner';
+
 import { decrementIndex, incrementIndex } from '../redux/slices/bannersSlice';
 import './styles/FeaturedBanner.scss';
 

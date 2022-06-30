@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { CartItem } from '../models/cart/CartItem';
+
 import './styles/OrderSummaryTable.scss';
 
 export interface IOrderSummaryTableProps {

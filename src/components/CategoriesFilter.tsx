@@ -1,7 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+
 import { Category } from '../models/categories/Category';
 import { FilterHash } from '../models/shared/FilterHash';
+
 import { changeFilters, setFilters } from '../redux/slices/filtersSlice';
 import './styles/CategoriesFilter.scss';
 

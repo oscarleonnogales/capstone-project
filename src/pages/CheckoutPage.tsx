@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { CheckoutFormValues } from '../models/shared/CheckoutFormValues';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useDispatch, useSelector } from 'react-redux';
+import CheckoutForm from '../components/CheckoutForm';
+import OrderSummaryTable from '../components/OrderSummaryTable';
+
 import { selectCart, resetCart } from '../redux/slices/cartSlice';
 import './styles/CheckoutPage.scss';
-import { CheckoutFormValues } from '../models/shared/CheckoutFormValues';
-import CheckoutForm from '../components/CheckoutForm';
-import { Link } from 'react-router-dom';
-import OrderSummaryTable from '../components/OrderSummaryTable';
 
 export interface ICheckoutPageProps {}
 

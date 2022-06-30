@@ -1,7 +1,9 @@
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import { CheckoutFormValues } from '../models/shared/CheckoutFormValues';
 import { Link } from 'react-router-dom';
+
+import { CheckoutFormValues } from '../models/shared/CheckoutFormValues';
+
+import { Formik, Form, Field } from 'formik';
 import './styles/CheckoutForm.scss';
 
 export interface ICheckoutFormProps {

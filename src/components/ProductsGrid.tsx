@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { Product } from '../models/products/Product';
-import './styles/ProductsGrid.scss';
 import ProductElement from './ProductElement';
+import './styles/ProductsGrid.scss';
 
 export interface IProductsGridPageProps {
 	products: Product[];

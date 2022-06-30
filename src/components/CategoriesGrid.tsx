@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Category } from '../models/categories/Category';
+
 import CategoryTile from './CategoryTile';
 import './styles/CategoriesGrid.scss';
 

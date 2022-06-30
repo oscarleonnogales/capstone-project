@@ -1,7 +1,9 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useDispatch, useSelector } from 'react-redux';
+
 import {
 	selectCart,
 	decreaseCartQuantity,

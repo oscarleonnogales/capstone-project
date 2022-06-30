@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useDispatch, useSelector } from 'react-redux';
+import LoadingAnimation from '../components/LoadingAnimation';
+
+import { Product } from '../models/products/Product';
+
 import { selectSelectedProductId } from '../redux/slices/productSlice';
 import { useProductDetails } from '../utils/hooks/useProductDetails';
-import { Product } from '../models/products/Product';
 import './styles/ProductDetailsPage.scss';
-import LoadingAnimation from '../components/LoadingAnimation';
 
 const ProductDetailsPage: React.FunctionComponent = () => {
 	const dispatch = useDispatch();

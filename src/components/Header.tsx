@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import logo from '../images/convenient.png';
+
 import './styles/Header.scss';
 
 const Header: React.FunctionComponent = () => {

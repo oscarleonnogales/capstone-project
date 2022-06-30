@@ -1,9 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import { Product } from '../models/products/Product';
-import { setSelectedProductId } from '../redux/slices/productSlice';
+
 import CartButtons from './CartButtons';
+
+import { setSelectedProductId } from '../redux/slices/productSlice';
 
 export interface IProductElementProps {
 	product: Product;

@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { CartItem } from '../models/cart/CartItem';
 import { Product } from '../models/products/Product';
+
 import {
 	selectCart,
 	increaseCartQuantity,
