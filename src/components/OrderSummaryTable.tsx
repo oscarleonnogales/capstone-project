@@ -27,7 +27,7 @@ const OrderSummaryTable: React.FunctionComponent<IOrderSummaryTableProps> = ({ c
 				<div className="table-label">Subtotal</div>
 			</div>
 			{cartItems.map((item) => (
-				<div className="table-row">
+				<div className="table-row" key={item.product.id}>
 					<div className="quantity">{item.quantity}</div>
 					<div className="item-name">{item.product.data.name}</div>
 					<div className="price">{`$${item.product.data.price}`}</div>

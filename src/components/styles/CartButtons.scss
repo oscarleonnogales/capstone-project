@@ -4,13 +4,13 @@
 
 .cart-quantity {
 	color: black !important;
+	text-align: center;
 }
 
 .inc-dec-btns {
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: min-content 3rem min-content;
 	align-items: center;
-	justify-content: space-around;
 }
 
 .cart-btn-remove {
@@ -24,4 +24,12 @@
 
 .cart-btns-container {
 	margin: 0.75rem;
+}
+
+.cart-btn-decrease {
+	background-color: hsl(354, 70%, 52%);
+
+	&:hover {
+		background-color: hsl(354, 70%, 60%);
+	}
 }
