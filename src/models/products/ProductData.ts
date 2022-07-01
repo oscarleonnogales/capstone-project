@@ -5,6 +5,7 @@ export interface ProductData {
 	name: string;
 	sku: string;
 	mainimage: ImageData;
+	images: ImageData[];
 	short_description: string;
 	description: Object[];
 	specs: Object[];
