@@ -73,10 +73,20 @@ body {
 }
 
 .main-container {
+	padding: 2rem 4rem;
 	position: relative;
 }
 
 .page-title {
-	margin: 2rem auto;
-	width: min-content;
+	text-align: center;
+}
+
+.d-flex {
+	display: flex;
+}
+
+@media (max-width: 600px) {
+	.main-container {
+		padding: 1rem 2rem;
+	}
 }

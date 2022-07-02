@@ -39,7 +39,7 @@ const ProductElement: React.FunctionComponent<IProductElementProps> = ({ product
 				<p className="product-price">{`$${product.data.price}`}</p>
 				<p className="product-category">{formatCategory(product.data.category.slug)}</p>
 			</Link>
-			<CartButtons product={product} />
+			<CartButtons product={product} showRemoveFromCartBtn={false} />
 		</div>
 	);
 };

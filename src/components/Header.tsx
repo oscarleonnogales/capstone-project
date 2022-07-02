@@ -15,7 +15,7 @@ const Header: React.FunctionComponent = () => {
 	return (
 		<nav className="navbar">
 			<Link to="/">
-				<img src={logo} className="logo" alt="logo-image" />
+				<img src={logo} className="logo" alt="logo" />
 			</Link>
 			<div className="searchContainer">
 				<input className="searchInput" type="text" name="searchTerm" placeholder="Search" />

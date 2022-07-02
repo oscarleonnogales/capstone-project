@@ -4,14 +4,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CartItem } from '../models/cart/CartItem';
 import { Product } from '../models/products/Product';
 
-import { selectCart, increaseCartQuantity, decreaseCartQuantity } from '../redux/slices/cartSlice';
+import {
+	selectCart,
+	increaseCartQuantity,
+	decreaseCartQuantity,
+	removeEntirelyFromCart,
+} from '../redux/slices/cartSlice';
 import './styles/CartButtons.scss';
 
 export interface ICartButtonProps {
 	product: Product;
+	showRemoveFromCartBtn: boolean;
 }
 
-const CartButtonsPage: React.FunctionComponent<ICartButtonProps> = ({ product }) => {
+const CartButtonsPage: React.FunctionComponent<ICartButtonProps> = ({
+	product,
+	showRemoveFromCartBtn,
+}) => {
 	const dispatch = useDispatch();
 	const cart = useSelector(selectCart);
 
@@ -32,6 +41,11 @@ const CartButtonsPage: React.FunctionComponent<ICartButtonProps> = ({ product })
 	const handleDecreaseCartAmount = (event: React.SyntheticEvent): void => {
 		event.stopPropagation();
 		dispatch(decreaseCartQuantity(product));
+	};
+
+	const handleRemovingFromCart = (event: React.SyntheticEvent): void => {
+		event.stopPropagation();
+		dispatch(removeEntirelyFromCart(product));
 	};
 
 	if (!alreadyInCart()) {
@@ -59,6 +73,11 @@ const CartButtonsPage: React.FunctionComponent<ICartButtonProps> = ({ product })
 					+
 				</button>
 			</div>
+			{showRemoveFromCartBtn && (
+				<div className="btn cart-btn-remove" onClick={(event) => handleRemovingFromCart(event)}>
+					Remove From Cart
+				</div>
+			)}
 		</div>
 	);
 };
