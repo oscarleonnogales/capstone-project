@@ -36,3 +36,10 @@
 	text-align: center;
 	margin: auto;
 }
+
+@media (min-width: 688px) {
+	.order-summary {
+		margin-left: 8rem;
+		margin-right: auto;
+	}
+}

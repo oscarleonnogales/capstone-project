@@ -2,6 +2,7 @@ import React from 'react';
 
 import { CartItem } from '../models/cart/CartItem';
 
+import { getCartItemSubtotal, getOrderTotal } from '../utils/services/cartService';
 import './styles/OrderSummaryTable.scss';
 
 export interface IOrderSummaryTableProps {
@@ -9,15 +10,6 @@ export interface IOrderSummaryTableProps {
 }
 
 const OrderSummaryTable: React.FunctionComponent<IOrderSummaryTableProps> = ({ cartItems }) => {
-	const getCartItemSubtotal = (cartItem: CartItem): number => {
-		return cartItem.quantity * cartItem.product.data.price;
-	};
-
-	const getOrderTotal = (): number => {
-		// eslint-disable-next-line no-param-reassign
-		return cartItems.reduce((total, item) => (total += getCartItemSubtotal(item)), 0);
-	};
-
 	return (
 		<div className="order-summary-table">
 			<div className="table-row">
@@ -38,7 +30,7 @@ const OrderSummaryTable: React.FunctionComponent<IOrderSummaryTableProps> = ({ c
 				<div className="empty-div" />
 				<div className="empty-div" />
 				<div className="total">Total</div>
-				<div className="total-price">{`$${getOrderTotal()}`}</div>
+				<div className="total-price">{`$${getOrderTotal(cartItems)}`}</div>
 			</div>
 		</div>
 	);

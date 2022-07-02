@@ -43,7 +43,7 @@ const CheckoutForm: React.FunctionComponent<ICheckoutFormProps> = ({
 					<Field as="textarea" id="notes" name="notes" className="form-input" />
 				</div>
 				<div className="checkout-btns-container">
-					<Link to="/" className="btn back-to-cart-btn">
+					<Link to="/cart" className="btn back-to-cart-btn">
 						Back To Cart
 					</Link>
 					<button className="btn" type="submit">
