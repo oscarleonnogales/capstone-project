@@ -5,8 +5,8 @@ import MobileMenu from './MobileMenu';
 
 import logo from '../images/convenient.png';
 import useWindowDimensions from '../utils/hooks/useWindowDimensions';
-import './styles/Header.scss';
 import SearchInput from './SearchInput';
+import './styles/Header.scss';
 
 const Header: React.FunctionComponent = () => {
 	const navItems: string[] = ['Home', 'Products', 'Cart', 'Checkout'];

@@ -9,7 +9,6 @@ import bannersReducer from './slices/bannersSlice';
 import categoriesReducer from './slices/categoriesSlice';
 import filtersReducer from './slices/filtersSlice';
 import cartReducer from './slices/cartSlice';
-import userReducer from './slices/userSlice';
 
 const reducers = combineReducers({
 	products: productsReducer,
@@ -17,7 +16,6 @@ const reducers = combineReducers({
 	categories: categoriesReducer,
 	filters: filtersReducer,
 	cart: cartReducer,
-	user: userReducer,
 });
 
 const persistConfig = {
