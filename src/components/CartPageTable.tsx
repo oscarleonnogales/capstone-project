@@ -7,7 +7,6 @@ import { Product } from '../models/products/Product';
 import { removeEntirelyFromCart } from '../redux/slices/cartSlice';
 import { getCartItemSubtotal, getOrderTotal } from '../utils/services/cartService';
 import CartButtons from './CartButtons';
-import './styles/CartPageTable.scss';
 
 export interface ICartTableProps {
 	items: CartItem[];

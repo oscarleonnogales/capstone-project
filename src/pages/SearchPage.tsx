@@ -20,7 +20,6 @@ import {
 	setProducts,
 } from '../redux/slices/productSlice';
 import { useSearch } from '../utils/hooks/useSearch';
-import './styles/SearchPage.scss';
 import SearchInput from '../components/SearchInput';
 import useWindowDimensions from '../utils/hooks/useWindowDimensions';
 

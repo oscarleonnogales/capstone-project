@@ -20,7 +20,6 @@ import { setCategories, selectCategories } from '../redux/slices/categoriesSlice
 import { useFeaturedBanners } from '../utils/hooks/useFeaturedBanners';
 import { useProducts } from '../utils/hooks/useProducts';
 import { useCategories } from '../utils/hooks/useCategories';
-import './styles/HomePage.scss';
 
 export interface IHomeProps {}
 
