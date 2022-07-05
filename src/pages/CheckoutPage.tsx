@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,6 +11,7 @@ import OrderSummaryTable from '../components/OrderSummaryTable';
 
 import { selectCart, resetCart } from '../redux/slices/cartSlice';
 import './styles/CheckoutPage.scss';
+import useWindowDimensions from '../utils/hooks/useWindowDimensions';
 
 export interface ICheckoutPageProps {}
 
@@ -18,6 +19,8 @@ const CheckoutPage: React.FunctionComponent<ICheckoutPageProps> = (props) => {
 	const dispatch = useDispatch();
 	const cartItems = useSelector(selectCart);
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+	const { width } = useWindowDimensions();
+	let isMobile: boolean = useMemo(() => (width <= 689 ? true : false), [width]);
 
 	const initialFormValues: CheckoutFormValues = { name: '', email: '', zipCode: 0, notes: '' };
 
@@ -40,8 +43,8 @@ const CheckoutPage: React.FunctionComponent<ICheckoutPageProps> = (props) => {
 				)}
 				{cartItems.length !== 0 && (
 					<>
-						<h2 className="order-summary">Order Summary</h2>
-						<OrderSummaryTable cartItems={cartItems} />
+						{!isMobile && <h2 className="order-summary">Order Summary</h2>}
+						{!isMobile && <OrderSummaryTable cartItems={cartItems} />}
 						<CheckoutForm
 							initialFormValues={initialFormValues}
 							handlePlaceOrder={handlePlaceOrder}

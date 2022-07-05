@@ -1,5 +1,4 @@
 .checkout-form {
-	width: min-content;
 	padding: 1rem 2rem;
 	border: 1px solid var(--highlight-color);
 	border-radius: 5px;
@@ -37,4 +36,18 @@
 
 .back-to-cart-btn {
 	text-decoration: none;
+}
+
+@media (max-width: 689px) {
+	.back-to-cart-btn,
+	.place-order-btn {
+		font-size: 0.75rem;
+		padding: 0.25rem;
+	}
+}
+
+@media (min-width: 689px) {
+	.checkout-form {
+		width: min-content;
+	}
 }

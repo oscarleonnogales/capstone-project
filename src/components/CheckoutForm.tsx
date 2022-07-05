@@ -46,7 +46,7 @@ const CheckoutForm: React.FunctionComponent<ICheckoutFormProps> = ({
 					<Link to="/cart" className="btn back-to-cart-btn">
 						Back To Cart
 					</Link>
-					<button className="btn" type="submit">
+					<button className="btn place-order-btn" type="submit">
 						Place Order
 					</button>
 				</div>
