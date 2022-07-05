@@ -26,31 +26,28 @@ const CheckoutPage: React.FunctionComponent<ICheckoutPageProps> = (props) => {
 		dispatch(resetCart());
 	};
 
-	if (cartItems.length === 0 && !isModalOpen) {
-		return (
-			<>
-				<Header />
-				<div className="main-container">
-					<h1 className="page-title">Checkout</h1>
-					<p className="no-items-message">
-						There are not items in your cart, please continue shopping before proceeding to the
-						checkout.
-					</p>
-				</div>
-				<Footer />
-			</>
-		);
-	}
-
 	return (
 		<>
 			<Header />
 			<div className="main-container">
 				<h1 className="page-title">Checkout</h1>
 
-				<h2 className="order-summary">Order Summary</h2>
-				<OrderSummaryTable cartItems={cartItems} />
-				<CheckoutForm initialFormValues={initialFormValues} handlePlaceOrder={handlePlaceOrder} />
+				{cartItems.length === 0 && !isModalOpen && (
+					<p className="page-message">
+						There are no items in your cart, please continue shopping before proceeding to the
+						checkout.
+					</p>
+				)}
+				{cartItems.length !== 0 && (
+					<>
+						<h2 className="order-summary">Order Summary</h2>
+						<OrderSummaryTable cartItems={cartItems} />
+						<CheckoutForm
+							initialFormValues={initialFormValues}
+							handlePlaceOrder={handlePlaceOrder}
+						/>
+					</>
+				)}
 			</div>
 			<Footer />
 			{isModalOpen && (
