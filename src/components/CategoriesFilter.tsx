@@ -11,7 +11,6 @@ export interface ICategoriesFilterPageProps {
 	filters: FilterHash;
 }
 
-// FIXME: How can I prevent unnecessary re-renders?
 const CategoriesFilterPage: React.FunctionComponent<ICategoriesFilterPageProps> = ({ filters }) => {
 	const dispatch = useDispatch();
 
