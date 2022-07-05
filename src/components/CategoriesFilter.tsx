@@ -1,23 +1,20 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Category } from '../models/categories/Category';
+
 import { FilterHash } from '../models/shared/FilterHash';
+
 import { changeFilters, setFilters } from '../redux/slices/filtersSlice';
+import { formatCategory } from '../utils/services/categoriesService';
 import './styles/CategoriesFilter.scss';
 
 export interface ICategoriesFilterPageProps {
-	categories: Category[];
 	filters: FilterHash;
 }
 
-const CategoriesFilterPage: React.FunctionComponent<ICategoriesFilterPageProps> = ({
-	categories,
-	filters,
-}) => {
+const CategoriesFilterPage: React.FunctionComponent<ICategoriesFilterPageProps> = ({ filters }) => {
 	const dispatch = useDispatch();
 
 	const handleFilterChange = (event: React.SyntheticEvent): void => {
-		event.preventDefault();
 		const target = event.target as HTMLInputElement;
 		dispatch(changeFilters({ [target.name]: target.checked }));
 	};
@@ -33,17 +30,17 @@ const CategoriesFilterPage: React.FunctionComponent<ICategoriesFilterPageProps> 
 	return (
 		<div className="categories-sidebar">
 			<p className="sidebar-title">Filter by Category</p>
-			{categories.map((category) => (
-				<div className="sidebar-element" key={category.data.name}>
+			{Object.keys(filters).map((filter) => (
+				<div className="sidebar-element" key={filter}>
 					<input
 						className="sidebar-checkbox"
-						name={category.slugs[0]}
+						name={filter}
 						type="checkbox"
 						onChange={(event) => handleFilterChange(event)}
-						checked={filters[category.slugs[0]] || false}
+						checked={filters[filter]}
 					/>
-					<label className="sidebar-label" htmlFor={category.data.name}>
-						{category.data.name}
+					<label className="sidebar-label" htmlFor={filter}>
+						{formatCategory(filter)}
 					</label>
 				</div>
 			))}

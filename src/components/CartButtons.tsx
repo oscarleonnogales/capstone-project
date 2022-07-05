@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { CartItem } from '../models/cart/CartItem';
 import { Product } from '../models/products/Product';
+
 import {
 	selectCart,
 	increaseCartQuantity,
@@ -12,9 +14,13 @@ import './styles/CartButtons.scss';
 
 export interface ICartButtonProps {
 	product: Product;
+	showRemoveFromCartBtn: boolean;
 }
 
-const CartButtonsPage: React.FunctionComponent<ICartButtonProps> = ({ product }) => {
+const CartButtonsPage: React.FunctionComponent<ICartButtonProps> = ({
+	product,
+	showRemoveFromCartBtn,
+}) => {
 	const dispatch = useDispatch();
 	const cart = useSelector(selectCart);
 
@@ -51,7 +57,6 @@ const CartButtonsPage: React.FunctionComponent<ICartButtonProps> = ({ product })
 	}
 
 	return (
-		// TODO: Finish styles
 		<div className="cart-btns-container">
 			<div className="inc-dec-btns">
 				<button
@@ -68,9 +73,11 @@ const CartButtonsPage: React.FunctionComponent<ICartButtonProps> = ({ product })
 					+
 				</button>
 			</div>
-			<div className="btn cart-btn-remove" onClick={(event) => handleRemovingFromCart(event)}>
-				Remove From Cart
-			</div>
+			{showRemoveFromCartBtn && (
+				<div className="btn cart-btn-remove" onClick={(event) => handleRemovingFromCart(event)}>
+					Remove From Cart
+				</div>
+			)}
 		</div>
 	);
 };

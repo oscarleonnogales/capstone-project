@@ -1,0 +1,31 @@
+.table-row {
+	display: grid;
+	// TODO: Make mobile responsive
+	grid-template-columns: 7rem 1fr 7rem 7rem;
+	margin-bottom: 0.5rem;
+}
+
+.table-label,
+.total,
+.total-price {
+	font-weight: bold;
+}
+
+.order-summary {
+	margin-left: 2rem;
+}
+
+.order-summary-table {
+	padding: 1rem 2rem;
+	margin: 0.5rem 2rem 1rem 2rem;
+	border: 1px solid var(--highlight-color);
+	box-shadow: var(--box-shadow);
+}
+
+.total-row {
+	margin-top: 1rem;
+}
+
+.item-name {
+	overflow: hidden;
+}

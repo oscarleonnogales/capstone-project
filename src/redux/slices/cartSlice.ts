@@ -23,7 +23,11 @@ export const cartSlice = createSlice({
 				(item) => item.product.id === action.payload.id
 			);
 			if (existingItem) {
-				existingItem.quantity++;
+				if (!existingItem.limitReached) {
+					existingItem.quantity++;
+					existingItem.limitReached =
+						existingItem.quantity === existingItem.product.data.stock ? true : false;
+				}
 				state.items = state.items.map((item) =>
 					item.product.id === existingItem.product.id ? existingItem : item
 				);
@@ -33,6 +37,7 @@ export const cartSlice = createSlice({
 					{
 						product: action.payload,
 						quantity: 1,
+						limitReached: false,
 					},
 				];
 			}
@@ -45,6 +50,7 @@ export const cartSlice = createSlice({
 				state.items = state.items.filter((item) => item.product.id !== existingItem.product.id);
 			} else {
 				existingItem.quantity--;
+				existingItem.limitReached = false;
 				state.items = state.items.map((item) =>
 					item.product.id === existingItem.product.id ? existingItem : item
 				);

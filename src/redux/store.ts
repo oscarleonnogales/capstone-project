@@ -1,13 +1,14 @@
+import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import thunk from 'redux-thunk';
+
 import productsReducer from './slices/productSlice';
 import bannersReducer from './slices/bannersSlice';
 import categoriesReducer from './slices/categoriesSlice';
 import filtersReducer from './slices/filtersSlice';
 import cartReducer from './slices/cartSlice';
-import storage from 'redux-persist/lib/storage';
-import { combineReducers } from 'redux';
-import { persistReducer } from 'redux-persist';
-import thunk from 'redux-thunk';
 
 const reducers = combineReducers({
 	products: productsReducer,

@@ -1,23 +1,25 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import FeaturedBanner from '../components/FeaturedBanner';
+import LoadingAnimation from '../components/LoadingAnimation';
+import ImageSlider from '../components/ImageSlider';
 import FeaturedProducts from '../components/FeaturedProducts';
 import Categories from '../components/CategoriesGrid';
-import { useFeaturedBanners } from '../utils/hooks/useFeaturedBanners';
-import { useDispatch, useSelector } from 'react-redux';
+
 import {
 	setBanners,
 	selectBanners,
 	selectCurrentIndex,
 	incrementIndex,
+	decrementIndex,
 } from '../redux/slices/bannersSlice';
 import { setProducts, selectProducts } from '../redux/slices/productSlice';
 import { setCategories, selectCategories } from '../redux/slices/categoriesSlice';
-import './styles/HomePage.scss';
+import { useFeaturedBanners } from '../utils/hooks/useFeaturedBanners';
 import { useProducts } from '../utils/hooks/useProducts';
 import { useCategories } from '../utils/hooks/useCategories';
-import LoadingAnimation from '../components/LoadingAnimation';
 
 export interface IHomeProps {}
 
@@ -31,6 +33,14 @@ const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
 	const { data, isLoading } = useFeaturedBanners();
 	const { productsData, areProductsLoading } = useProducts();
 	const { categoriesData, areCategoriesLoading } = useCategories();
+
+	const handleNextBannerIndex = (): void => {
+		dispatch(incrementIndex());
+	};
+
+	const handlePreviousBannerIndex = (): void => {
+		dispatch(decrementIndex());
+	};
 
 	useEffect(() => {
 		const interval: NodeJS.Timer = setInterval(() => {
@@ -67,7 +77,11 @@ const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
 		<>
 			<Header />
 			<div className="main-container">
-				<FeaturedBanner featuredBanner={banners[currentIndex]} />
+				<ImageSlider
+					displayedImage={banners[currentIndex].data.main_image}
+					handleNextClick={handleNextBannerIndex}
+					handlePreviousClick={handlePreviousBannerIndex}
+				/>
 				<Categories categories={categories} />
 				<FeaturedProducts products={products} />
 			</div>

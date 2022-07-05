@@ -1,10 +1,6 @@
 .categoriesGrid {
-	display: grid;
-	max-width: 100vw;
-	grid-gap: 1rem;
-	margin: 2rem;
-	grid-template-columns: repeat(3, 1fr);
 	color: #444;
+	text-align: center;
 }
 
 .category {
@@ -61,6 +57,15 @@
 	.categoriesGrid {
 		grid-template-columns: 1fr;
 	}
+
+	.categoriesGrid {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.category {
+		margin-top: 1rem;
+	}
 }
 
 @media (min-width: 689px) {
@@ -85,5 +90,14 @@
 
 	.cat-4 {
 		grid-column: 1 / span 3;
+	}
+
+	.categoriesGrid {
+		display: grid;
+		max-width: 100vw;
+		min-width: 90vw;
+		grid-gap: 1rem;
+		margin: 2rem auto;
+		grid-template-columns: repeat(3, 1fr);
 	}
 }

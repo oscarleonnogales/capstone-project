@@ -7,6 +7,7 @@
 }
 
 :root {
+	position: relative;
 	--light-bg-color: #fff;
 	--dark-text-color: #303030;
 	--highlight-color: #56d1f0;
@@ -73,5 +74,36 @@ body {
 }
 
 .main-container {
+	padding: 2rem 4rem;
 	position: relative;
+}
+
+.page-title {
+	text-align: center;
+}
+
+.d-flex {
+	display: flex;
+}
+
+@media (max-width: 689px) {
+	.main-container {
+		padding: 1rem 2rem;
+	}
+}
+
+.pagination-btn-container {
+	margin: auto;
+	width: max-content;
+}
+
+.page-message {
+	font-size: 1.5rem;
+	text-align: center;
+	margin: 2rem;
+}
+
+.search-btn {
+	width: min-content;
+	margin: 1rem auto;
 }

@@ -1,6 +1,9 @@
 .navbar {
 	display: flex;
 	justify-content: space-between;
+	position: sticky;
+	z-index: 10;
+	top: 0;
 	align-items: center;
 	background-color: rgb(23, 23, 23);
 }
@@ -47,7 +50,7 @@
 	border-color: var(--outline-color);
 }
 
-.logo {
+.logo-image {
 	max-height: 3rem;
 	margin-left: 3rem;
 }

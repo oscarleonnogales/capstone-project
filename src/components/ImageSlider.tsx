@@ -1,27 +1,23 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Banner } from '../models/banners/Banner';
-import { decrementIndex, incrementIndex } from '../redux/slices/bannersSlice';
-import './styles/FeaturedBanner.scss';
 
-export interface IFeaturedBannerProps {
-	featuredBanner: Banner;
+import { ImageData } from '../models/shared/ImageData';
+
+import './styles/ImageSlider.scss';
+
+export interface IImageSliderProps {
+	displayedImage: ImageData;
+	handleNextClick: () => void;
+	handlePreviousClick: () => void;
 }
 
-const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ featuredBanner }) => {
-	const dispatch = useDispatch();
-
-	const prevImage = (): void => {
-		dispatch(decrementIndex());
-	};
-
-	const nextImage = (): void => {
-		dispatch(incrementIndex());
-	};
-
+const ImageSlider: React.FunctionComponent<IImageSliderProps> = ({
+	displayedImage,
+	handleNextClick,
+	handlePreviousClick,
+}) => {
 	return (
 		<div className="slider">
-			<button className="slider-btn previous-btn" onClick={prevImage}>
+			<button className="slider-btn previous-btn" onClick={handlePreviousClick}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="#27c5ec"
@@ -34,7 +30,7 @@ const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ feature
 					/>
 				</svg>
 			</button>
-			<button className="slider-btn next-btn" onClick={nextImage}>
+			<button className="slider-btn next-btn" onClick={handleNextClick}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					className="bi bi-arrow-right-circle"
@@ -47,13 +43,9 @@ const FeaturedBanner: React.FunctionComponent<IFeaturedBannerProps> = ({ feature
 					/>
 				</svg>
 			</button>
-			<img
-				className="slider-image"
-				src={featuredBanner?.data.main_image.url}
-				alt={featuredBanner?.data.main_image.alt}
-			/>
+			<img className="slider-image" src={displayedImage.url} alt={displayedImage.alt} />
 		</div>
 	);
 };
 
-export default FeaturedBanner;
+export default ImageSlider;

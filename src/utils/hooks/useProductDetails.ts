@@ -4,12 +4,12 @@ import { useLatestAPI } from './useLatestAPI';
 import { ProductsApiResponse } from '../../models/products/ProductsApiResponse';
 import { ProductDetailsResponse } from '../../models/products/ProductDetailsResponse';
 
-// FIXME: Better way to make props?
-export function useProductDetails(productId: string | null) {
+export function useProductDetails(productId: string | null, page: number = 1) {
 	const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
 	const [productDetails, setProductDetails] = useState<ProductDetailsResponse>({
 		productDetailsData: {
 			results: [],
+			page,
 		},
 		areProductDetailsLoading: true,
 	});
@@ -23,7 +23,10 @@ export function useProductDetails(productId: string | null) {
 
 		async function getProducts() {
 			try {
-				setProductDetails({ productDetailsData: { results: [] }, areProductDetailsLoading: true });
+				setProductDetails({
+					productDetailsData: { results: [], page },
+					areProductDetailsLoading: true,
+				});
 
 				const response = await fetch(
 					`${API_BASE_URL}/documents/search?ref=${apiRef}&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22${productId}%22%29+%5D%5D`,
@@ -35,7 +38,10 @@ export function useProductDetails(productId: string | null) {
 
 				setProductDetails({ productDetailsData, areProductDetailsLoading: false });
 			} catch (err) {
-				setProductDetails({ productDetailsData: { results: [] }, areProductDetailsLoading: false });
+				setProductDetails({
+					productDetailsData: { results: [], page },
+					areProductDetailsLoading: false,
+				});
 				console.error(err);
 			}
 		}
@@ -45,7 +51,7 @@ export function useProductDetails(productId: string | null) {
 		return () => {
 			controller.abort();
 		};
-	}, [apiRef, isApiMetadataLoading, productId]);
+	}, [apiRef, isApiMetadataLoading, page, productId]);
 
 	return productDetails;
 }
