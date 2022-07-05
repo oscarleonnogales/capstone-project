@@ -1,6 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
+/*
+    Currently, this slice is only being used to store the 'isMobile' value. I decided to include it in the redux store in case I decide to add user authentication in the future.
+*/
+
 interface UserState {
 	isMobile: boolean;
 }
