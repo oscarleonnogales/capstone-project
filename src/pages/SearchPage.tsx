@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../components/Header';
@@ -21,6 +21,8 @@ import {
 } from '../redux/slices/productSlice';
 import { useSearch } from '../utils/hooks/useSearch';
 import './styles/SearchPage.scss';
+import SearchInput from '../components/SearchInput';
+import useWindowDimensions from '../utils/hooks/useWindowDimensions';
 
 const SearchPage: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
@@ -31,6 +33,8 @@ const SearchPage: React.FunctionComponent = () => {
 	const nextPage = useSelector(selectNextPage);
 
 	const { searchResults, isSearchLoading } = useSearch(searchTerm, currentPage);
+	const { width } = useWindowDimensions();
+	let isMobile: boolean = useMemo(() => (width <= 689 ? true : false), [width]);
 
 	useEffect(() => {
 		if (!isSearchLoading) {
@@ -58,6 +62,8 @@ const SearchPage: React.FunctionComponent = () => {
 			<Header />
 			<div className="main-container">
 				<h1 className="page-title">Search Results</h1>
+				{searchTerm && <div className="page-message">Results for '{searchTerm}'</div>}
+				{isMobile && <SearchInput showSearchButton={true} />}
 				<ProductsGrid products={products} />
 
 				{products.length === 0 && (

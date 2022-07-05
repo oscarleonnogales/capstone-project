@@ -27,7 +27,7 @@ const Header: React.FunctionComponent = () => {
 			<Link to="/">
 				<img src={logo} className="logo-image" alt="logo" />
 			</Link>
-			<SearchInput />
+			<SearchInput showSearchButton={false} />
 			<ul className="navbar-list navbar-links-container">
 				{navItems.map((item) => (
 					<li key={item}>

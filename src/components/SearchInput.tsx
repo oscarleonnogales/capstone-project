@@ -7,11 +7,13 @@ import { Formik, Form, Field } from 'formik';
 import { SearchForm } from '../models/shared/SearchForm';
 import { setSearchTerm } from '../redux/slices/productSlice';
 
-export interface ISearchInputProps {}
+export interface ISearchInputProps {
+	showSearchButton: boolean;
+}
 
 const initialFormValues: SearchForm = { searchTerm: '' };
 
-const SearchInput: React.FunctionComponent<ISearchInputProps> = (props) => {
+const SearchInput: React.FunctionComponent<ISearchInputProps> = ({ showSearchButton }) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -32,6 +34,11 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (props) => {
 						placeholder="Search"
 					/>
 				</div>
+				{showSearchButton && (
+					<button className="btn search-btn" type="submit">
+						Search
+					</button>
+				)}
 			</Form>
 		</Formik>
 	);
