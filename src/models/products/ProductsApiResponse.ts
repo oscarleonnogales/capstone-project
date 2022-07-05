@@ -1,12 +1,13 @@
 import { Product } from './Product';
 
 export interface ProductsApiResponse {
-	license?: string;
-	next_page?: number;
-	page?: number;
-	prev_page?: number;
-	results: Product[];
+	page: number;
 	results_per_page?: number;
 	results_size?: number;
 	total_results_size?: number;
+	next_page?: string;
+	prev_page?: string;
+	results: Product[];
+	version?: string;
+	license?: string;
 }

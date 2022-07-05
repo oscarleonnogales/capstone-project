@@ -7,6 +7,7 @@ import { Product } from '../models/products/Product';
 import CartButtons from './CartButtons';
 
 import { setSelectedProductId } from '../redux/slices/productSlice';
+import { formatCategory } from '../utils/services/categoriesService';
 
 export interface IProductElementProps {
 	product: Product;
@@ -19,9 +20,25 @@ const ProductElement: React.FunctionComponent<IProductElementProps> = ({ product
 		dispatch(setSelectedProductId(product.id));
 	};
 
-	const formatCategory = (word: string): string => {
-		return word.charAt(0).toUpperCase() + word.slice(1).split('--').join(' & ');
+	const validateProduct = (product: Product): boolean => {
+		if (
+			!product?.id ||
+			!product?.data?.sku ||
+			!product?.data?.mainimage?.url ||
+			!product?.data?.mainimage?.alt ||
+			!product?.data?.name ||
+			!product?.data?.price ||
+			!product?.data?.category?.slug
+		) {
+			return false;
+		} else {
+			return true;
+		}
 	};
+
+	if (!validateProduct(product)) {
+		return <></>;
+	}
 
 	return (
 		<div className="product" key={product.data.sku}>
