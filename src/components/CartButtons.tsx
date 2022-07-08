@@ -17,7 +17,7 @@ export interface ICartButtonProps {
 	showRemoveFromCartBtn: boolean;
 }
 
-const CartButtonsPage: React.FunctionComponent<ICartButtonProps> = ({
+const CartButtons: React.FunctionComponent<ICartButtonProps> = ({
 	product,
 	showRemoveFromCartBtn,
 }) => {
@@ -82,4 +82,4 @@ const CartButtonsPage: React.FunctionComponent<ICartButtonProps> = ({
 	);
 };
 
-export default CartButtonsPage;
+export default CartButtons;

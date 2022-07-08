@@ -6,7 +6,7 @@ import { Product } from '../models/products/Product';
 import ProductElement from './ProductElement';
 import './styles/ProductsGrid.scss';
 
-export interface IProductsGridPageProps {
+export interface IProductsGridProps {
 	products: Product[];
 }
 
@@ -14,7 +14,7 @@ function ErrorFallback() {
 	return <></>;
 }
 
-const ProductsGridPage: React.FunctionComponent<IProductsGridPageProps> = ({ products }) => {
+const ProductsGrid: React.FunctionComponent<IProductsGridProps> = ({ products }) => {
 	return (
 		<div className="productsGrid">
 			{products.map((product) => (
@@ -26,4 +26,4 @@ const ProductsGridPage: React.FunctionComponent<IProductsGridPageProps> = ({ pro
 	);
 };
 
-export default ProductsGridPage;
+export default ProductsGrid;
