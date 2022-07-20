@@ -6,12 +6,31 @@
 	padding: 0;
 }
 
+html {
+	scroll-behavior: smooth;
+	overflow-y: scroll;
+	scrollbar-color: var(--highlight-color) var(--scrollbar-bg-color);
+	scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+	width: 0.35rem;
+}
+
+html::-webkit-scrollbar-track {
+	background: var(--scrollbar-bg-color);
+}
+
+html::-webkit-scrollbar-thumb {
+	background: var(--highlight-color);
+}
+
 :root {
 	position: relative;
 	--light-bg-color: #fff;
 	--dark-text-color: #303030;
 	--highlight-color: #56d1f0;
-
+	--scrollbar-bg-color: #1e1e24;
 	--outline-color: #1a73e8;
 	--input-color: #80868b;
 	--border-color: #dadce0;
