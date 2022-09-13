@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { Category } from '../../models/categories/Category';
 
-interface CategoryState {
+type CategoryState = {
 	categories: Category[];
-}
+};
 
 const initialState: CategoryState = {
 	categories: [],

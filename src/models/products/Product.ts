@@ -1,6 +1,6 @@
 import { ProductData } from './ProductData';
 
-export interface Product {
+export type Product = {
 	id: string;
 	uid: string;
 	url: string;
@@ -14,4 +14,4 @@ export interface Product {
 	lang: string;
 	alternate_languages: Object[];
 	data: ProductData;
-}
+};

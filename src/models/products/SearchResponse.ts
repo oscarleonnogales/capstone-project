@@ -1,6 +1,6 @@
 import { ProductsApiResponse } from './ProductsApiResponse';
 
-export interface SearchResponse {
+export type SearchResponse = {
 	searchResults: ProductsApiResponse;
 	isSearchLoading: boolean;
-}
+};

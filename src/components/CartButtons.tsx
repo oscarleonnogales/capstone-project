@@ -12,12 +12,12 @@ import {
 } from '../redux/slices/cartSlice';
 import './styles/CartButtons.scss';
 
-export interface ICartButtonProps {
+export type CartButtonProps = {
 	product: Product;
 	showRemoveFromCartBtn: boolean;
-}
+};
 
-const CartButtons: React.FunctionComponent<ICartButtonProps> = ({
+const CartButtons: React.FunctionComponent<CartButtonProps> = ({
 	product,
 	showRemoveFromCartBtn,
 }) => {

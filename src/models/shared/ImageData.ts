@@ -1,8 +1,8 @@
 import { Dimensions } from './Dimensions';
 
-export interface ImageData {
+export type ImageData = {
 	url: string;
 	alt: string;
 	copyright?: string;
 	dimensions: Dimensions;
-}
+};

@@ -1,6 +1,6 @@
 import { CategoriesApiResponse } from './CategoriesApiResponse';
 
-export interface CategoriesResponse {
+export type CategoriesResponse = {
 	categoriesData: CategoriesApiResponse;
 	areCategoriesLoading: boolean;
-}
+};

@@ -6,12 +6,12 @@ import { CheckoutFormValues } from '../models/shared/CheckoutFormValues';
 import { Formik, Form, Field } from 'formik';
 import './styles/CheckoutForm.scss';
 
-export interface ICheckoutFormProps {
+export type CheckoutFormProps = {
 	initialFormValues: CheckoutFormValues;
 	handlePlaceOrder: (values: CheckoutFormValues) => void;
-}
+};
 
-const CheckoutForm: React.FunctionComponent<ICheckoutFormProps> = ({
+const CheckoutForm: React.FunctionComponent<CheckoutFormProps> = ({
 	initialFormValues,
 	handlePlaceOrder,
 }) => {

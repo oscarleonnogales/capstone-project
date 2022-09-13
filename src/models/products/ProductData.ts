@@ -3,7 +3,7 @@ import { ImageObject } from '../shared/ImageObject';
 import { Specification } from '../shared/Specification';
 import { ProductCategory } from './ProductCategory';
 
-export interface ProductData {
+export type ProductData = {
 	name: string;
 	sku: string;
 	mainimage: ImageData;
@@ -14,4 +14,4 @@ export interface ProductData {
 	stock: number;
 	price: number;
 	category: ProductCategory;
-}
+};

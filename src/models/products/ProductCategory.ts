@@ -1,4 +1,4 @@
-export interface ProductCategory {
+export type ProductCategory = {
 	id: string;
 	type: string;
 	tags: string[];
@@ -8,4 +8,4 @@ export interface ProductCategory {
 	last_publication_date: string;
 	link_type: string;
 	isBroken: boolean;
-}
+};

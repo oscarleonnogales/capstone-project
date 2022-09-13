@@ -7,7 +7,7 @@ import './styles/LoadingAnimation.scss';
 
 // Styles and animation taken from https://loading.io/css
 
-const LoadingAnimation: React.FunctionComponent = (props) => {
+const LoadingAnimation: React.FunctionComponent = () => {
 	return (
 		<>
 			<Header />

@@ -1,6 +1,6 @@
 import { Product } from './Product';
 
-export interface ProductsApiResponse {
+export type ProductsApiResponse = {
 	page: number;
 	results_per_page?: number;
 	results_size?: number;
@@ -10,4 +10,4 @@ export interface ProductsApiResponse {
 	results: Product[];
 	version?: string;
 	license?: string;
-}
+};

@@ -5,11 +5,11 @@ import { Category } from '../models/categories/Category';
 import CategoryTile from './CategoryTile';
 import './styles/CategoriesGrid.scss';
 
-export interface ICategoriesGridProps {
+export type CategoriesGridProps = {
 	categories: Category[];
-}
+};
 
-const CategoriesGrid: React.FunctionComponent<ICategoriesGridProps> = ({ categories }) => {
+const CategoriesGrid: React.FunctionComponent<CategoriesGridProps> = ({ categories }) => {
 	return (
 		<div className="categoriesGrid">
 			{categories.map((category, index) => (

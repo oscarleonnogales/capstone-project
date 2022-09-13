@@ -5,11 +5,11 @@ import { CartItem } from '../models/cart/CartItem';
 import { getCartItemSubtotal, getOrderTotal } from '../utils/services/cartService';
 import './styles/OrderSummaryTable.scss';
 
-export interface IOrderSummaryTableProps {
+export type OrderSummaryTableProps = {
 	cartItems: CartItem[];
-}
+};
 
-const OrderSummaryTable: React.FunctionComponent<IOrderSummaryTableProps> = ({ cartItems }) => {
+const OrderSummaryTable: React.FunctionComponent<OrderSummaryTableProps> = ({ cartItems }) => {
 	return (
 		<div className="order-summary-table">
 			<div className="table-row">

@@ -6,9 +6,7 @@ import Footer from '../components/Footer';
 
 import './styles/InvalidPage.scss';
 
-export interface IInvalidPageProps {}
-
-const InvalidPage: React.FunctionComponent<IInvalidPageProps> = (props) => {
+const InvalidPage: React.FunctionComponent = () => {
 	return (
 		<>
 			<Header />

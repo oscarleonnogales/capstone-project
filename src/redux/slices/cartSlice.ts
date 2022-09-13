@@ -3,9 +3,9 @@ import { RootState } from '../store';
 import { Product } from '../../models/products/Product';
 import { CartItem } from '../../models/cart/CartItem';
 
-interface CartState {
+type CartState = {
 	items: CartItem[];
-}
+};
 
 const initialState: CartState = {
 	items: [],

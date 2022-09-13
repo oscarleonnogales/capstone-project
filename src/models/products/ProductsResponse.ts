@@ -1,6 +1,6 @@
 import { ProductsApiResponse } from './ProductsApiResponse';
 
-export interface ProductsResponse {
+export type ProductsResponse = {
 	productsData: ProductsApiResponse;
 	areProductsLoading: boolean;
-}
+};

@@ -21,9 +21,7 @@ import { useFeaturedBanners } from '../utils/hooks/useFeaturedBanners';
 import { useProducts } from '../utils/hooks/useProducts';
 import { useCategories } from '../utils/hooks/useCategories';
 
-export interface IHomeProps {}
-
-const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
+const HomePage: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
 	const products = useSelector(selectProducts);
 	const categories = useSelector(selectCategories);

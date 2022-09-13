@@ -7,11 +7,11 @@ import { changeFilters, setFilters } from '../redux/slices/filtersSlice';
 import { formatCategory } from '../utils/services/categoriesService';
 import './styles/CategoriesFilter.scss';
 
-export interface ICategoriesFilterPageProps {
+export type CategoriesFilterPageProps = {
 	filters: FilterHash;
-}
+};
 
-const CategoriesFilterPage: React.FunctionComponent<ICategoriesFilterPageProps> = ({ filters }) => {
+const CategoriesFilterPage: React.FunctionComponent<CategoriesFilterPageProps> = ({ filters }) => {
 	const dispatch = useDispatch();
 
 	const handleFilterChange = (event: React.SyntheticEvent): void => {

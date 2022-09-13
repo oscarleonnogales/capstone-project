@@ -8,11 +8,11 @@ import { removeEntirelyFromCart } from '../redux/slices/cartSlice';
 import { getCartItemSubtotal, getOrderTotal } from '../utils/services/cartService';
 import CartButtons from './CartButtons';
 
-export interface ICartTableProps {
+export type CartTableProps = {
 	items: CartItem[];
-}
+};
 
-const CartTable: React.FunctionComponent<ICartTableProps> = ({ items }) => {
+const CartTable: React.FunctionComponent<CartTableProps> = ({ items }) => {
 	const dispatch = useDispatch();
 
 	const handleRemoveProductFromCart = (product: Product): void => {

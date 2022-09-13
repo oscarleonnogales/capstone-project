@@ -2,14 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { Product } from '../../models/products/Product';
 
-interface ProductState {
+type ProductState = {
 	products: Product[];
 	searchTerm: string | null;
 	selectedProductId: string | null;
 	currentPage: number;
 	prev_page: string | undefined;
 	next_page: string | undefined;
-}
+};
 
 const initialState: ProductState = {
 	products: [],

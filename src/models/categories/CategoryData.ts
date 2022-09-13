@@ -1,6 +1,6 @@
 import { ImageData } from '../shared/ImageData';
 
-export interface CategoryData {
+export type CategoryData = {
 	name: string;
 	main_image: ImageData;
-}
+};

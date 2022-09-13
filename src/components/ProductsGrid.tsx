@@ -6,15 +6,15 @@ import { Product } from '../models/products/Product';
 import ProductElement from './ProductElement';
 import './styles/ProductsGrid.scss';
 
-export interface IProductsGridProps {
+export type ProductsGridProps = {
 	products: Product[];
-}
+};
 
 function ErrorFallback() {
 	return <></>;
 }
 
-const ProductsGrid: React.FunctionComponent<IProductsGridProps> = ({ products }) => {
+const ProductsGrid: React.FunctionComponent<ProductsGridProps> = ({ products }) => {
 	return (
 		<div className="productsGrid">
 			{products.map((product) => (

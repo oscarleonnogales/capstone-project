@@ -1,5 +1,5 @@
 import { ImageData } from './ImageData';
 
-export interface ImageObject {
+export type ImageObject = {
 	image: ImageData;
-}
+};

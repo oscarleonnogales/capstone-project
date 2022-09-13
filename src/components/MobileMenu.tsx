@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/MobileMenu.scss';
 
-export interface IMobileMenuProps {
+export type MobileMenuProps = {
 	navItems: string[];
 	formatString: (str: string) => string;
-}
+};
 
-const MobileMenu: React.FunctionComponent<IMobileMenuProps> = ({ navItems, formatString }) => {
+const MobileMenu: React.FunctionComponent<MobileMenuProps> = ({ navItems, formatString }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	const toggleMenu = (): void => {

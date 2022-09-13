@@ -1,6 +1,6 @@
 import { BannerData } from './BannerData';
 
-export interface Banner {
+export type Banner = {
 	id: string;
 	uid: string;
 	url: string;
@@ -14,4 +14,4 @@ export interface Banner {
 	lang: string;
 	alternate_languages: Object[];
 	data: BannerData;
-}
+};

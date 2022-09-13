@@ -13,9 +13,7 @@ import { selectCart, resetCart } from '../redux/slices/cartSlice';
 import './styles/CheckoutPage.scss';
 import useWindowDimensions from '../utils/hooks/useWindowDimensions';
 
-export interface ICheckoutPageProps {}
-
-const CheckoutPage: React.FunctionComponent<ICheckoutPageProps> = (props) => {
+const CheckoutPage: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
 	const cartItems = useSelector(selectCart);
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);

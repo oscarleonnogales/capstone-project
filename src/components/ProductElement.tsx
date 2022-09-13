@@ -9,11 +9,11 @@ import CartButtons from './CartButtons';
 import { setSelectedProductId } from '../redux/slices/productSlice';
 import { formatCategory } from '../utils/services/categoriesService';
 
-export interface IProductElementProps {
+export type ProductElementProps = {
 	product: Product;
-}
+};
 
-const ProductElement: React.FunctionComponent<IProductElementProps> = ({ product }) => {
+const ProductElement: React.FunctionComponent<ProductElementProps> = ({ product }) => {
 	const dispatch = useDispatch();
 
 	const handleProductSelection = (product: Product): void => {

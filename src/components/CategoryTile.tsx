@@ -5,12 +5,12 @@ import { Category } from '../models/categories/Category';
 
 import { CATEGORIES } from '../utils/constants';
 
-export interface ICategoryTileProps {
+export type CategoryTileProps = {
 	category: Category;
 	index: number;
-}
+};
 
-const CategoryTile: React.FunctionComponent<ICategoryTileProps> = ({ category, index }) => {
+const CategoryTile: React.FunctionComponent<CategoryTileProps> = ({ category, index }) => {
 	return category ? (
 		<Link
 			to={`/products?${CATEGORIES}=${category.slugs[0].toLowerCase()}`}

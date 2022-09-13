@@ -1,6 +1,6 @@
 import { CategoryData } from './CategoryData';
 
-export interface Category {
+export type Category = {
 	id: string;
 	uid: string;
 	url: string;
@@ -14,4 +14,4 @@ export interface Category {
 	lang: string;
 	alternate_languages: Object[];
 	data: CategoryData;
-}
+};

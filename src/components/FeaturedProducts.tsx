@@ -5,11 +5,11 @@ import { Product } from '../models/products/Product';
 
 import ProductsGrid from './ProductsGrid';
 
-export interface IFeaturedProductsProps {
+export type FeaturedProductsProps = {
 	products: Product[];
-}
+};
 
-const FeaturedProducts: React.FunctionComponent<IFeaturedProductsProps> = ({ products }) => {
+const FeaturedProducts: React.FunctionComponent<FeaturedProductsProps> = ({ products }) => {
 	return (
 		<>
 			<ProductsGrid products={products} />

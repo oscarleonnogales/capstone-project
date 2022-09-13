@@ -2,10 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { FilterHash } from '../../models/shared/FilterHash';
 
-interface FilterState {
+type FilterState = {
 	filters: FilterHash;
 	applyFilters: boolean;
-}
+};
 
 const initialState: FilterState = {
 	filters: {},

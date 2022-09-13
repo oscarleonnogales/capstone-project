@@ -1,6 +1,6 @@
 import { BannerApiResponse } from './BannerApiResponse';
 
-export interface FeaturedBannersResponse {
+export type FeaturedBannersResponse = {
 	data: BannerApiResponse;
 	isLoading: boolean;
-}
+};

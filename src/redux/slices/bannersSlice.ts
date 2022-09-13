@@ -2,10 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { Banner } from '../../models/banners/Banner';
 
-interface BannerState {
+type BannerState = {
 	banners: Banner[];
 	currentIndex: number;
-}
+};
 
 const initialState: BannerState = {
 	banners: [],

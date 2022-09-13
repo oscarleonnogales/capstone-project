@@ -4,13 +4,13 @@ import { ImageData } from '../models/shared/ImageData';
 
 import './styles/ImageSlider.scss';
 
-export interface IImageSliderProps {
+export type ImageSliderProps = {
 	displayedImage: ImageData;
 	handleNextClick: () => void;
 	handlePreviousClick: () => void;
-}
+};
 
-const ImageSlider: React.FunctionComponent<IImageSliderProps> = ({
+const ImageSlider: React.FunctionComponent<ImageSliderProps> = ({
 	displayedImage,
 	handleNextClick,
 	handlePreviousClick,
