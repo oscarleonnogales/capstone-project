@@ -7,7 +7,7 @@ const Footer: React.FunctionComponent = () => {
 		<div className="footer">
 			<div>
 				<a
-					href="https://www.wizeline.com/"
+					href="https://academy.wizeline.com/"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="footer-link"
