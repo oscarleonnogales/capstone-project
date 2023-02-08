@@ -24,16 +24,6 @@ const Footer: React.FunctionComponent = () => {
 					Couch icons created by Freepik - Flaticon
 				</a>
 			</div>
-			<div>
-				<a
-					href="http://oscarleon.dev"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="footer-link secondary-text"
-				>
-					Developed with ♥ by Oscar Leon
-				</a>
-			</div>
 		</div>
 	);
 };
